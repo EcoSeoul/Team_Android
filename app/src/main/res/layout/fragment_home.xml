@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="11"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="3dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        
+        <ImageButton
+            android:id="@+id/home_detail_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/home_plus"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <TextView
+            android:id="@+id/home_wholeCarborn_text"
+            android:layout_marginTop="17dp"
+            android:text="전체 탄소배출 감소량"
+            android:textSize="28dp"
+            android:textColor="#343434"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/home_progress_container"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_below="@+id/home_wholeCarborn_text"
+            android:layout_centerHorizontal="true">
+
+            <ProgressBar
+                android:id="@+id/home_progress"
+
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_shape"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="65"
+                android:progressDrawable="@drawable/circular_progress_bar" />
+
+
+            <TextView
+                android:id="@+id/home_carborn_text"
+                android:text="230kgCO2"
+                android:textSize="26dp"
+                android:textColor="#343434"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/home_date_text"
+                android:text="4월 ~ 8월"
+                android:textSize="20dp"
+                android:textColor="#55595D"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/home_carborn_text"/>
+            
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_carborn_text"
+                android:layout_centerHorizontal="true">
+                
+                <ImageView
+                    android:id="@+id/home_arrow_image"
+                    android:layout_width="14dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/percentage_down"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/home_percentage_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:text="10%"
+                    android:textSize="20dp"
+                    android:textColor="#26D07C"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작년대비"
+                    android:textSize="15dp"
+                    android:textColor="#343434"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/home_save_text"
+            android:layout_above="@+id/home_save_ment_text"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="36dp"
+            android:text="작년보다 10%를"
+            android:includeFontPadding="false"
+            android:textSize="28dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textColor="#707070"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_save_ment_text"
+            android:text="절약한 당신! 최고에요!"
+            android:layout_marginLeft="23dp"
+            android:textSize="28dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:textColor="#707070"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/home_toBottom_arrow_button"/>
+
+        <ImageButton
+            android:id="@+id/home_toBottom_arrow_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/arrow_down_black"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
