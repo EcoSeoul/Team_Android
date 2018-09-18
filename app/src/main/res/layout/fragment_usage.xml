@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.gelitenight.waveview.library.WaveView
+        android:id="@+id/waveView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="11">
+
+        <RelativeLayout
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageButton
+                android:id="@+id/usage_detail_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_plus"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/usage_date_text"
+                android:text="8월"
+                android:textSize="20dp"
+                android:textColor="#707070"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/usage_what_text"
+                android:text="전기 사용량"
+                android:textSize="28dp"
+                android:textColor="#343434"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/usage_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/usage_quantity_text"
+                android:text="1000kWh"
+                android:textSize="40dp"
+                android:textColor="#343434"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
+                android:layout_below="@+id/usage_what_text"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usage_quantity_text"
+                android:layout_marginTop="9dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/usage_arrow_image"
+                    android:layout_width="14dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/percentage_down"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/usage_percentage_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:text="10%"
+                    android:textSize="20dp"
+                    android:textColor="#26D07C"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작년대비"
+                    android:textSize="15dp"
+                    android:textColor="#343434"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/usage_save_text"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="36dp"
+                android:text="작년보다 10%를"
+                android:includeFontPadding="false"
+                android:textSize="28dp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textColor="#707070"
+                android:layout_above="@+id/usage_save_ment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/usage_save_ment_text"
+                android:text="절약한 당신! 최고에요!"
+                android:layout_marginLeft="23dp"
+                android:textSize="28dp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:textColor="#707070"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/usage_toBottom_arrow_button"/>
+
+            <ImageButton
+                android:id="@+id/usage_toBottom_arrow_button"
+                android:layout_alignParentBottom="true"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/arrow_down_black"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
