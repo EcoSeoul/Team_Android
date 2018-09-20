@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
 
         detailButton = view.findViewById(R.id.home_detail_button)
         detailButton.setOnClickListener { v: View? ->
-            var intent = Intent(activity.applicationContext, LoginActivity::class.java)
+            var intent = Intent(activity.applicationContext, AllActivity::class.java)
             startActivity(intent)
         }
         return view
