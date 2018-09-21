@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="327dp"
+    android:layout_height="188dp"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_style1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="아직 에코머니가 없어요!\n에코머니를 등록하겠습니까?"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/helveticaneue_thin"
+        android:gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#707070"
+            android:layout_marginTop="23.5dp"
+            android:layout_marginBottom="13.5dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="카드 등록하기 !"
+        android:textColor="#26D07C"
+        android:textSize="22sp"
+        android:fontFamily="@font/helveticaneu_bold"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

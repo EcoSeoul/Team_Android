@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".community.CommunityWriteActivity"
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/com_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="top"
+        android:background="#FFFFFF"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="11dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="글 작성하기"
+                android:textColor="#343434"
+                android:textSize="17sp"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/com_write_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="right|center_vertical"
+                android:background="#fff"
+                android:text="등록"
+                android:textSize="17sp"
+                android:textColor="#26D07C"
+                android:layout_marginRight="14dp"/>
+
+        </FrameLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:hint="제목을 입력하세요 (15자 이내)"
+        android:textColorHint="#C7C7CC"
+        android:textSize="17sp"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="14dp"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:cursorVisible="false"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E6E6E6"
+        android:layout_marginTop="13.5dp"
+        android:layout_marginBottom="10.5dp"
+        android:layout_marginHorizontal="4dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="내용을 입력하세요 (2000자 이내)"
+        android:textColorHint="#C7C7CC"
+        android:textSize="17sp"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="14dp"
+        android:maxLength="2000"
+        android:cursorVisible="false" />
+
+
+</LinearLayout>
