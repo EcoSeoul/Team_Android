@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.home.model.ParentItem
 import kotlinx.android.synthetic.main.list_item_parent.view.*
 
 /**
@@ -13,4 +14,5 @@ import kotlinx.android.synthetic.main.list_item_parent.view.*
 class ParentViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     var parentText : TextView = itemView.findViewById(R.id.parent_title_text)
     var parentButton : ImageButton = itemView.findViewById(R.id.parent_arrow_button)
+    lateinit var refferalItem : ParentItem
 }

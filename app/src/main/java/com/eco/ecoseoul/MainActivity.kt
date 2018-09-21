@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         verticalAdapter = VerticalViewAdapter(supportFragmentManager)
         verticalPage.adapter = verticalAdapter
 
-        verticalPage.clipToPadding = false
-        verticalPage.setPadding(0,0,0,100)
+//        verticalPage.clipToPadding = false
+//        verticalPage.setPadding(0,0,0,100)
 
         verticalPage.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 when(position){
-                    0->{
-                        verticalPage.setPadding(0,0,0,100)
-                    }
-                    1->{
-                        verticalPage.setPadding(0,100,0,0)
-                    }
+//                    0->{
+//                        verticalPage.setPadding(0,0,0,100)
+//                    }
+//                    1->{
+//                        verticalPage.setPadding(0,0,0,0)
+//                    }
                 }
             }
 
