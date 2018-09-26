@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.eco.ecoseoul.R
 
-import org.w3c.dom.Text
-
-class BottomSheetDialog : BottomSheetDialogFragment(), View.OnClickListener {
-
+class BottomSheetDialog: BottomSheetDialogFragment(), View.OnClickListener {
     private var tv_fran_name: TextView? = null
     private var tv_fran_type: TextView? = null
     private var tv_fran_addr: TextView? = null

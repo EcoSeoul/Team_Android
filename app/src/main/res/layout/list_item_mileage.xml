@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="4">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/my_mileage_save" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_mileage_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="10% 달성 적립"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:textSize="13dp"/>
+
+        <TextView
+            android:id="@+id/tv_mileage_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/notosanscjkkr_light"
+            android:text="2018.08.24"
+            android:textSize="13dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_mileage_count"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="@font/notosanscjkkr_medium"
+        android:text="+20000"
+        android:textSize="15dp"
+        android:textAlignment="center"/>
+</LinearLayout>
