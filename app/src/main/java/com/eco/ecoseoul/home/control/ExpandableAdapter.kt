@@ -124,8 +124,9 @@ class ExpandableAdapter(var items : ArrayList<ParentItem>) : RecyclerView.Adapte
                 }
                 if(data.editionalText != null){
                     childHolder.childEditionalText.text = data.editionalText
+                    childHolder.childEditionalText.visibility = View.VISIBLE
                 } else {
-                    childHolder.childEditionalText.visibility = 0
+                    childHolder.childEditionalText.visibility = View.GONE
                 }
             }
         }

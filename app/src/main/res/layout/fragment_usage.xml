@@ -5,8 +5,13 @@
     android:orientation="vertical"
     android:background="#FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <com.gelitenight.waveview.library.WaveView
-        android:id="@+id/waveView"
+        android:id="@+id/waveViewPast"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.gelitenight.waveview.library.WaveView
+        android:id="@+id/waveViewCurrent"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -143,6 +148,7 @@
                 android:layout_marginTop="18dp"
                 android:background="@drawable/arrow_down_black"
                 android:layout_centerHorizontal="true"/>
+
 
         </RelativeLayout>
 
