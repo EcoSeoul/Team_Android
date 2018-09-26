@@ -1,12 +1,13 @@
-package com.eco.ecoseoul
+package com.eco.ecoseoul.shop
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.eco.ecoseoul.R
 
-class RegistrationActivity : AppCompatActivity() {
+class ShopDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.activity_shop_detail)
     }
 }

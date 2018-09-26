@@ -26,8 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.view.AllActivity"/>
-        <activity android:name=".home.view.LoginActivity" />
-        <activity android:name=".home.view.AllActivity" />
         <activity android:name=".community.CommunityActivity" />
         <activity android:name=".community.CommunityDetailActivity" />
         <activity android:name=".community.CommunityWriteActivity" />
@@ -35,7 +33,9 @@
 
         <activity android:name=".franchise.SearchFranActivity" />
         <activity android:name=".MapsActivity" />
-
+        <activity android:name=".shop.ShopActivity" />
+        <activity android:name=".shop.ShopDetailActivity" />
+        <activity android:name=".MypageMyListActivity"></activity>
     </application>
 
 </manifest>

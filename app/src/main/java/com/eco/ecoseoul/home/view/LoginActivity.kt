@@ -12,11 +12,11 @@ import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.NetworkService.NetworkService
 
-import com.eco.ecoseoul.R
 import com.eco.ecoseoul.home.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.eco.ecoseoul.R
 
 class LoginActivity : AppCompatActivity() {
 
