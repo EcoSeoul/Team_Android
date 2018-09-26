@@ -2,6 +2,7 @@ package com.eco.ecoseoul.home.view
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,8 @@ class ChildFragment : Fragment() {
         horizontalAdapter = HorizonAdapter(childFragmentManager)
         horViewpage.adapter = horizontalAdapter
         horViewpage.currentItem = 0
+
+
         indicator = view.findViewById(R.id.main_indicator)
         indicator.setViewPager(horViewpage)
         return view

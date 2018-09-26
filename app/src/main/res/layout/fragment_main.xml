@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_scroll_view"
     android:background="#FFFFFF">
 
     <LinearLayout
@@ -9,39 +10,68 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/barcode_bottom_layout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="51dp">
+            android:layout_height="51dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/barcode_exchange_layout">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="51dp"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_marginLeft="23dp"
+                    android:id="@+id/barcode_mileage_text"
+                    android:text="에코 마일리지 50000"
+                    android:textSize="15dp"
+                    android:textColor="#707070"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:background="@drawable/home_mileage"
+                    android:layout_marginLeft="3dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp" />
+            </LinearLayout>
 
             <TextView
-                android:layout_marginLeft="23dp"
-                android:id="@+id/home_mileage_text"
-                android:text="에코 마일리지 50000"
+                android:id="@+id/main_barcode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
                 android:textSize="15dp"
                 android:textColor="#707070"
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageView
-                android:background="@drawable/home_mileage"
-                android:layout_marginLeft="3dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/home_mileage_text"
-                android:layout_width="14dp"
-                android:layout_height="14dp" />
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/home_barcode_image"
                 android:layout_width="35dp"
                 android:layout_height="22dp"
-                android:layout_alignParentRight="true"
                 android:layout_marginRight="22dp"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
+                android:layout_centerVertical="true"
+                />
+
+            <ImageButton
+                android:id="@+id/barcode_mypage_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_mypage"
+                />
+
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/main_banner_pager"
@@ -50,12 +80,237 @@
 
         </android.support.v4.view.ViewPager>
 
-        <android.support.v7.app.AlertController.RecycleListView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/expand_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </android.support.v7.app.AlertController.RecycleListView>
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="6"
+                android:background="#FFFFFF"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="친환경 상품 신청하기"
+                    android:textColor="#343434"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:text="온라인으로 상폼을 신청해보세요"
+                    android:textColor="#707070"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26D07C">
+
+                <ImageButton
+                    android:id="@+id/main_goods_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow_right_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="6"
+                android:background="#FFFFFF"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="에코마일리지 기부하기"
+                    android:textColor="#343434"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:text="에코마일리지 기부 어쩌고"
+                    android:textColor="#707070"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26D07C">
+
+                <ImageButton
+                    android:id="@+id/main_donation_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow_right_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="6"
+                android:background="#FFFFFF"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="커뮤니티"
+                    android:textColor="#343434"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:text="꿀팁 공유"
+                    android:textColor="#707070"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26D07C">
+
+                <ImageButton
+                    android:id="@+id/main_community_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow_right_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="6"
+                android:background="#FFFFFF"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="에코마일리지란?"
+                    android:textColor="#343434"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:text="마일리지란 무엇일까요"
+                    android:textColor="#707070"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26D07C">
+
+                <ImageButton
+                    android:id="@+id/main_milage_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow_right_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>

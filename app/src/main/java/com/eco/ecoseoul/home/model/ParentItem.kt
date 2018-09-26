@@ -7,6 +7,8 @@ import android.widget.TextView
  * Created by minhyoung on 2018. 9. 19..
  */
 data class ParentItem (
-        var parentText : TextView,
-        var parentButton : ImageButton
+        var parentText : String,
+        var editionalText : String?,
+        var invisibleChildren : ArrayList<ParentItem>?,
+        var type : Int
 )
