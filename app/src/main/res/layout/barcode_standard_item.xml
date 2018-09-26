@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="51dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:background="#FFFFFF"
+        android:id="@+id/barcode_standard_layout">
+
+        <TextView
+            android:layout_marginLeft="23dp"
+            android:id="@+id/standard_mileage_text"
+            android:text="에코 마일리지 50000"
+            android:textSize="15dp"
+            android:textColor="#707070"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:background="@drawable/home_mileage"
+            android:layout_marginLeft="3dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/standard_mileage_text"
+            android:layout_width="14dp"
+            android:layout_height="14dp" />
+
+        <ImageView
+            android:id="@+id/standard_barcode_image"
+            android:layout_width="35dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="22dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
+</merge>

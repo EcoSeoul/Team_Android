@@ -7,7 +7,7 @@ import android.widget.TextView
  * Created by minhyoung on 2018. 9. 19..
  */
 data class ChildItem (
-        var childText : TextView,
-        var childButton : ImageButton,
-        var editionalText : TextView
+        var childText : String,
+        var editionalText : String,
+        var type : Int
 )
