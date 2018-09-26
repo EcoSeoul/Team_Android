@@ -3,10 +3,9 @@ package com.eco.ecoseoul
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
+import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
 import android.widget.LinearLayout
-import com.eco.ecoseoul.R
-import com.eco.ecoseoul.franchise.BottomSheetDialog
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -40,9 +39,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             selectedMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_big_green_mark))
 
-            val bottomSheetDialog = BottomSheetDialog.instance
+            /*val bottomSheetDialog = BottomSheetDialog(this, )
             bottomSheetDialog.show(supportFragmentManager, "bottomSheet")
-
+*/
             true
         })
         mMap.setOnMapClickListener(GoogleMap.OnMapClickListener { marker ->
