@@ -120,28 +120,31 @@ class MainFragment : Fragment() {
     var buttonClick = View.OnClickListener { v : View ->
         var intent : Intent? = null
         when(v!!.id){
-            R.id.main_goods_button->{
+            R.id.main_goods_button->{//샵 가기 버튼
                 //intent = Intent(activity.applicationContext,)
                 Toast.makeText(activity.applicationContext,"goods",Toast.LENGTH_SHORT).show()
             }
-            R.id.main_donation_button->{
+            R.id.main_donation_button->{ //기부하러가기 버튼
                 intent = Intent(activity,DonationActivity::class.java)
                 startActivity(intent)
 
             }
-            R.id.main_community_button->{
+            R.id.main_community_button->{//커뮤니티 보기 버튼
                 //intent = Intent(activity.applicationContext,)
                 Toast.makeText(activity.applicationContext,"community",Toast.LENGTH_SHORT).show()
             }
-            R.id.main_milage_button->{
+            R.id.main_milage_button->{//마일리지 설명 버튼
                 //intent = Intent(activity.applicationContext,)
                 Toast.makeText(activity.applicationContext,"milage",Toast.LENGTH_SHORT).show()
             }
-            R.id.barcode_mypage_button->{
+            R.id.barcode_mypage_button->{ //마이페이지 버튼
                 Log.d("mainFrag","mypage")
             }
-            R.id.main_barcode_text->{
+            R.id.main_barcode_text->{ // 에코머니 등록
                 Log.d("mainFrag","barcode not")
+            }
+            R.id.home_barcode_image->{ //바코드 확인
+
             }
         }
         //startActivity(intent)
@@ -165,6 +168,7 @@ class MainFragment : Fragment() {
         mileageText = view.findViewById(R.id.barcode_mileage_text)
         barcodeText = view.findViewById(R.id.main_barcode_text)
         barcodeText.setOnClickListener(buttonClick)
+        barcodeImage.setOnClickListener(buttonClick)
 
 
         mypageButton.visibility = View.GONE

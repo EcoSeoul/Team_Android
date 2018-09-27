@@ -34,16 +34,16 @@ class UsageAdapter(var itemAlls : ArrayList<AllUsageItem>) : RecyclerView.Adapte
         usageHolder.usageText.text = data.usage
         when(data.arrow){
             0->{
-                usageHolder.arrowImage.setImageResource(R.drawable.percentage_down)
+                usageHolder.arrowImage.setBackgroundResource(R.drawable.percentage_down)
                 usageHolder.mentText.text = "작년과 같은\r\n 사용량 이에요!"
             }
             1->{
-                usageHolder.arrowImage.setImageResource(R.drawable.percentage_up)
+                usageHolder.arrowImage.setBackgroundResource(R.drawable.percentage_up)
                 usageHolder.mentText.text = "절약 BAAAAAAD"
                 usageHolder.percentageText.setTextColor(Color.parseColor("#FF8888"))
             }
             2->{
-                usageHolder.arrowImage.setImageResource(R.drawable.percentage_down)
+                usageHolder.arrowImage.setBackgroundResource(R.drawable.percentage_down)
                 usageHolder.mentText.text = "작년보다 "+data.percentage+"% 절약한 당신! 최고에요!"
             }
         }
