@@ -9,6 +9,7 @@ import com.eco.ecoseoul.home.control.VerticalViewAdapter
 import android.util.TypedValue
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.home.model.MainResponse
+import com.eco.ecoseoul.home.view.LoginActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,9 +22,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var networkService : NetworkService
     var mainData : Response<MainResponse>? = null
 
+    companion object {
+        lateinit var mContext: Context
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d("asdf","mainActivity")
+        mContext = this
 
         networkService = ApplicationController!!.instance.networkService
 
@@ -61,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        getMainItems()
+       //getMainItems()
 
     }
 
@@ -91,8 +97,18 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d("MainActivity","onResume")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("MainActivity","onStop")
+    }
+
     fun getData() : Response<MainResponse>?{
-        return mainData
+        return LoginActivity.mainData
     }
 
     fun changePage(){

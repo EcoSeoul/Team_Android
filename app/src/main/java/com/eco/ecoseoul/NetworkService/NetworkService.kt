@@ -1,5 +1,6 @@
 package com.eco.ecoseoul.NetworkService
 
+import com.eco.ecoseoul.BaseModel
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
 import retrofit2.Call
@@ -23,4 +24,13 @@ interface NetworkService {
             @Field("user_pw") user_pw : String
     ) : Call<LoginResponse>
 
+    //3. 기부하기
+    @FormUrlEncoded
+    @POST("donation")
+    fun postDation(
+            @Field("org_idx") org_idx : Int,
+            @Field("org_name") org_name : String,
+            @Field("user_idx") user_idx : Int,
+            @Field("donation_mileage") donation_mileage : Int
+    ) : Call<BaseModel>
 }

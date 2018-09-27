@@ -8,8 +8,7 @@
         android:id="@+id/all_item_usage_image"
         android:layout_marginLeft="9dp"
         android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/home_all_graph" />
+        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/all_item_month_text"

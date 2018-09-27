@@ -119,26 +119,13 @@
                 android:id="@+id/usage_save_text"
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="36dp"
-                android:text="작년보다 10%를"
                 android:includeFontPadding="false"
                 android:textSize="28dp"
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:textColor="#707070"
-                android:layout_above="@+id/usage_save_ment_text"
+                android:layout_above="@+id/usage_toBottom_arrow_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/usage_save_ment_text"
-                android:text="절약한 당신! 최고에요!"
-                android:layout_marginLeft="23dp"
-                android:textSize="28dp"
-                android:fontFamily="@font/notosanscjkkr_regular"
-                android:includeFontPadding="false"
-                android:textColor="#707070"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/usage_toBottom_arrow_button"/>
 
             <ImageButton
                 android:id="@+id/usage_toBottom_arrow_button"

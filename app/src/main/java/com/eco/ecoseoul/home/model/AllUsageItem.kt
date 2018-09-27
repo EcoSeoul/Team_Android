@@ -5,11 +5,10 @@ import android.graphics.drawable.Drawable
 /**
  * Created by minhyoung on 2018. 9. 26..
  */
-data class UsageItem (
+data class AllUsageItem (
         var image : Drawable,
         var month : String,
-        var arrow : Drawable,
+        var arrow : Int,
         var usage : String,
-        var percentage : String,
-        var ment : String
+        var percentage : String
 )

@@ -1,8 +1,10 @@
 package com.eco.ecoseoul.home.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,9 @@ import android.widget.TextView
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.home.control.WaveHelper
+import com.eco.ecoseoul.home.model.MainResponse
+import retrofit2.Response
+import java.util.*
 
 
 /**
@@ -33,8 +38,10 @@ class UsageFragment() : Fragment() {
     lateinit var percentageText : TextView
     lateinit var saveText : TextView
     lateinit var toBottButton : ImageButton
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_usage,container,false)
+        Log.d("asdf","usageFragment")
         initView(view)
         waveViewCurrent = view.findViewById(R.id.waveViewCurrent)
         waveViewCurrent.setShapeType(WaveView.ShapeType.SQUARE)
@@ -43,14 +50,35 @@ class UsageFragment() : Fragment() {
         waveViewPast = view.findViewById(R.id.waveViewPast)
         waveViewPast.setShapeType(WaveView.ShapeType.SQUARE)
         mWaveHelperPast = WaveHelper(waveViewPast)
+        var mainData : Response<MainResponse>? = null
+        var context = MainActivity.mContext as MainActivity
+        mainData = context.getData()
+        var calendar = Calendar.getInstance()
+
         when(arguments.getInt("usage")){
             1->{//전기
-                dateText.text = "8월"
+                dateText.text = ((calendar.get(Calendar.MONTH)).toString()+"월")
                 whatText.text = "전기 사용량"
-                quantityText.text = "1000kWh"
-                arrowImage.setImageResource(R.drawable.percentage_down)
-                percentageText.text = "10%"
-                saveText.text = "작년보다 70%를"
+                quantityText.text = (mainData!!.body()!!.usageData.elec.present.toString()+"kWh")
+
+                when(mainData!!.body()!!.usageData.elec.up_down){
+                    0->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년과 같은 사용량 이에요!"
+                    }
+                    1->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_up)
+                        percentageText.setTextColor(Color.parseColor("#FF8888"))
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "더 사용하셨어요..."
+                    }
+                    2->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "절약한 당신! 최고에요!"
+                    }
+                }
+                percentageText.text = (mainData!!.body()!!.usageData.elec.percentage.toString()+"%")
                 waveViewCurrent.setWaveColor(Color.parseColor("#00000000"),Color.parseColor("#FADE43"))
                 mWaveHelper.initWave(0.3f)
 
@@ -58,12 +86,27 @@ class UsageFragment() : Fragment() {
                 mWaveHelperPast.initWave(0.5f)
             }
             2->{//수도
-                dateText.text = "8월"
+                dateText.text = ((calendar.get(Calendar.MONTH)).toString()+"월")
                 whatText.text = "수도 사용량"
-                quantityText.text = "1200kWh"
-                arrowImage.setImageResource(R.drawable.percentage_down)
-                percentageText.text = "10%"
-                saveText.text = "작년보다 30%를"
+                quantityText.text = (mainData!!.body()!!.usageData.water.present.toString()+"kWh")
+                percentageText.text = (mainData!!.body()!!.usageData.water.percentage.toString()+"%")
+                when(mainData!!.body()!!.usageData.elec.up_down){
+                    0->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년과 같은 사용량 이에요!"
+                    }
+                    1->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_up)
+                        percentageText.setTextColor(Color.parseColor("#FF8888"))
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "더 사용하셨어요..."
+                    }
+                    2->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "절약한 당신! 최고에요!"
+                    }
+                }
                 waveViewCurrent.setWaveColor(Color.parseColor("#00000000"),Color.parseColor("#4486F0"))
                 mWaveHelper.initWave(0.7f)
 
@@ -71,12 +114,27 @@ class UsageFragment() : Fragment() {
                 mWaveHelperPast.initWave(0.5f)
             }
             3->{//도시가스
-                dateText.text = "8월"
+                dateText.text = ((calendar.get(Calendar.MONTH)).toString()+"월")
                 whatText.text = "도시가스 사용량"
-                quantityText.text = "900kWh"
-                arrowImage.setImageResource(R.drawable.percentage_down)
-                percentageText.text = "10%"
-                saveText.text = "작년보다 50%를"
+                quantityText.text = (mainData!!.body()!!.usageData.gas.present.toString()+"kWh")
+                percentageText.text = (mainData!!.body()!!.usageData.gas.percentage.toString()+"%")
+                when(mainData!!.body()!!.usageData.elec.up_down){
+                    0->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년과 같은 사용량 이에요!"
+                    }
+                    1->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_up)
+                        percentageText.setTextColor(Color.parseColor("#FF8888"))
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "더 사용하셨어요..."
+                    }
+                    2->{
+                        arrowImage.setBackgroundResource(R.drawable.percentage_down)
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                                "절약한 당신! 최고에요!"
+                    }
+                }
                 waveViewCurrent.setWaveColor(Color.parseColor("#00000000"),Color.parseColor("#D5B1FF"))
                 mWaveHelper.initWave(0.5f)
 
@@ -90,6 +148,11 @@ class UsageFragment() : Fragment() {
         toBottButton.setOnClickListener { v: View? ->
             var context = activity as MainActivity
             context.changePage()
+        }
+
+        detailButton.setOnClickListener{ v: View? ->
+            var intent = Intent(activity.applicationContext, AllActivity::class.java)
+            startActivity(intent)
         }
 
         return view
