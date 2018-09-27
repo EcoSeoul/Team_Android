@@ -54,6 +54,7 @@ class MainFragment : Fragment() {
     lateinit var barcodeText : TextView
     lateinit var mileageText : TextView
 
+    lateinit var franchiseButton : ImageButton
     lateinit var goodsButton : ImageButton
     lateinit var donationButton : ImageButton
     lateinit var communityButton : ImageButton
@@ -120,6 +121,9 @@ class MainFragment : Fragment() {
     var buttonClick = View.OnClickListener { v : View ->
         var intent : Intent? = null
         when(v!!.id){
+            R.id.main_franchise_button->{//가맹점 찾기 버튼
+
+            }
             R.id.main_goods_button->{//샵 가기 버튼
                 //intent = Intent(activity.applicationContext,)
                 Toast.makeText(activity.applicationContext,"goods",Toast.LENGTH_SHORT).show()
@@ -158,6 +162,7 @@ class MainFragment : Fragment() {
         bannerPager.adapter = bannerAdapter
         bannerPager.invalidate()
 
+        franchiseButton = view.findViewById(R.id.main_franchise_button)
         goodsButton = view.findViewById(R.id.main_goods_button)
         donationButton = view.findViewById(R.id.main_donation_button)
         communityButton = view.findViewById(R.id.main_community_button)
@@ -174,6 +179,7 @@ class MainFragment : Fragment() {
         mypageButton.visibility = View.GONE
 
 
+        franchiseButton.setOnClickListener(buttonClick)
         goodsButton.setOnClickListener(buttonClick)
         donationButton.setOnClickListener(buttonClick)
         communityButton.setOnClickListener(buttonClick)
