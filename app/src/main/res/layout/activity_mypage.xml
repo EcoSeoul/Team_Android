@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/mypage_close"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:background="@drawable/ic_close"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:text="MY"
+            android:textSize="34dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="에코 마일리지"
+            android:textSize="25dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_my_emileage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:text="50000"
+                android:textColor="#26D07C"
+                android:textSize="45dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:text="M"
+                android:textSize="45dp" />
+
+            <Button
+                android:id="@+id/btn_my_emileage_detail"
+                android:layout_width="63dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="34dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:gravity="bottom|right"
+                android:text="상세보기"
+                android:textColor="#343434"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="21dp"
+            app:srcCompat="@drawable/home_all_dot" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="27dp">
+
+            <Button
+                android:id="@+id/btn_my_exchange1"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/mypage_exchange" />
+
+            <Button
+                android:id="@+id/btn_my_exchange2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:text="  전환하기"
+                android:textColor="#26D07C"
+                android:textSize="15dp"
+                android:textAlignment="viewStart"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/home_all_dot" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="에코 머니"
+            android:textSize="25dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_my_emoney"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:text="50000"
+                android:textColor="#26D07C"
+                android:textSize="45dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:text="M"
+                android:textSize="45dp" />
+
+            <Button
+                android:id="@+id/btn_my_emoney_detail"
+                android:layout_width="63dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="34dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:gravity="bottom|right"
+                android:text="상세보기"
+                android:textColor="#343434"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:weightSum="12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="신청 내역"
+            android:textSize="18dp"
+            android:textColor="#707070"/>
+
+        <Button
+            android:id="@+id/btn_my_request"
+            android:layout_width="46dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/arrow_right_black" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:weightSum="12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="기부 내역"
+            android:textSize="18dp"
+            android:textColor="#707070"/>
+
+        <Button
+            android:id="@+id/btn_my_donation"
+            android:layout_width="46dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/arrow_right_black" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:weightSum="12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="내가 쓴 글"
+            android:textSize="18dp"
+            android:textColor="#707070"/>
+
+        <Button
+            android:id="@+id/btn_my_post"
+            android:layout_width="46dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/arrow_right_black" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:weightSum="12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="카드 등록 하기"
+            android:textSize="18dp"
+            android:textColor="#707070"/>
+
+        <Button
+            android:id="@+id/btn_my_card"
+            android:layout_width="46dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/arrow_right_black" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+
+        <Button
+            android:id="@+id/btn_my_faq1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mypage_question" />
+
+        <Button
+            android:id="@+id/btn_my_faq2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:text="자주 묻는 질문"
+            android:textColor="#707070"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_my_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:gravity="bottom|right"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="로그아웃"
+            android:textColor="#707070"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+</LinearLayout>
