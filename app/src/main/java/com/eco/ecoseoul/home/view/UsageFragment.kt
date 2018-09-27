@@ -90,7 +90,7 @@ class UsageFragment() : Fragment() {
                 whatText.text = "수도 사용량"
                 quantityText.text = (mainData!!.body()!!.usageData.water.present.toString()+"kWh")
                 percentageText.text = (mainData!!.body()!!.usageData.water.percentage.toString()+"%")
-                when(mainData!!.body()!!.usageData.elec.up_down){
+                when(mainData!!.body()!!.usageData.water.up_down){
                     0->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_down)
                         saveText.text = "작년과 같은 사용량 이에요!"
@@ -98,12 +98,12 @@ class UsageFragment() : Fragment() {
                     1->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_up)
                         percentageText.setTextColor(Color.parseColor("#FF8888"))
-                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.water.percentage.toString()+"%를\r\n" +
                                 "더 사용하셨어요..."
                     }
                     2->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_down)
-                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.water.percentage.toString()+"%를\r\n" +
                                 "절약한 당신! 최고에요!"
                     }
                 }
@@ -118,7 +118,7 @@ class UsageFragment() : Fragment() {
                 whatText.text = "도시가스 사용량"
                 quantityText.text = (mainData!!.body()!!.usageData.gas.present.toString()+"kWh")
                 percentageText.text = (mainData!!.body()!!.usageData.gas.percentage.toString()+"%")
-                when(mainData!!.body()!!.usageData.elec.up_down){
+                when(mainData!!.body()!!.usageData.gas.up_down){
                     0->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_down)
                         saveText.text = "작년과 같은 사용량 이에요!"
@@ -126,12 +126,12 @@ class UsageFragment() : Fragment() {
                     1->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_up)
                         percentageText.setTextColor(Color.parseColor("#FF8888"))
-                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.gas.percentage.toString()+"%를\r\n" +
                                 "더 사용하셨어요..."
                     }
                     2->{
                         arrowImage.setBackgroundResource(R.drawable.percentage_down)
-                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.elec.percentage.toString()+"%를\r\n" +
+                        saveText.text = "작년보다 "+mainData!!.body()!!.usageData.gas.percentage.toString()+"%를\r\n" +
                                 "절약한 당신! 최고에요!"
                     }
                 }

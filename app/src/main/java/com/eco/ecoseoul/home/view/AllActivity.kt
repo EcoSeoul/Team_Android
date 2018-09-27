@@ -78,14 +78,14 @@ class AllActivity : AppCompatActivity() {
 
         when(mainData!!.body()!!.usageData.carbon.up_down){
             0->{
-                carbonArrowImage.setImageResource(R.drawable.percentage_down)
+                carbonArrowImage.setBackgroundResource(R.drawable.percentage_down)
             }
             1->{
-                carbonArrowImage.setImageResource(R.drawable.percentage_up)
+                carbonArrowImage.setBackgroundResource(R.drawable.percentage_up)
                 carbonPercentageText.setTextColor(Color.parseColor("#FF8888"))
             }
             2->{
-                carbonArrowImage.setImageResource(R.drawable.percentage_down)
+                carbonArrowImage.setBackgroundResource(R.drawable.percentage_down)
             }
         }
 

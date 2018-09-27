@@ -36,19 +36,15 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        SharedPreference.instance!!.load(this)
-//
-//        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
-//            getMainItems(SharedPreference.instance!!.get)
-//        } else {
-//
-//        }
-
+        SharedPreference.instance!!.load(this)
+        networkService = ApplicationController!!.instance.networkService
+        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
+            Log.d("test",SharedPreference.instance!!.getPrefStringData("user_name"))
+            getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
+        }
         idEdit = findViewById(R.id.login_id_edit)
         pwEdit = findViewById(R.id.login_pw_edit)
         loginButton = findViewById(R.id.login_login_button)
-
-        networkService = ApplicationController!!.instance.networkService
         loginButton.setOnClickListener{v: View? ->
             if(idEdit.text.toString().equals("") || pwEdit.text.toString().equals("")){
                 Toast.makeText(this,"ID 또는 PW를 입력해주세요.",Toast.LENGTH_LONG).show()
@@ -64,6 +60,11 @@ class LoginActivity : AppCompatActivity() {
                             if(response!!.code() == 400){
                                 Toast.makeText(applicationContext,"ID 또는 PW가 맞지 않습니다.",Toast.LENGTH_LONG).show()
                             } else {
+                                SharedPreference.instance!!.setPrefData("user_idx",response!!.body()!!.checkResult[0].user_idx)
+                                SharedPreference.instance!!.setPrefData("user_name",response!!.body()!!.checkResult[0].user_name)
+                                SharedPreference.instance!!.setPrefData("user_mileage",response!!.body()!!.checkResult[0].user_mileage)
+                                SharedPreference.instance!!.setPrefData("user_money",response!!.body()!!.checkResult[0].user_money)
+                                SharedPreference.instance!!.setPrefData("user_barcodenum",response!!.body()!!.checkResult[0].user_barcodenum)
                                 getMainItems(response!!.body()!!.checkResult[0].user_idx)
                             }
                         } else if(response!!.code() == 400){
@@ -77,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getMainItems(user_idx : Int){
-        val mainResponse = networkService.getMainItems(1)
+        val mainResponse = networkService.getMainItems(user_idx)
         mainResponse.enqueue(object : Callback<MainResponse>{
             override fun onFailure(call: Call<MainResponse>?, t: Throwable?) {
                 Log.d("Network","main Failure")

@@ -19,6 +19,7 @@
         android:layout_marginTop="34.5dp"/>
 
     <TextView
+        android:id="@+id/dialog_barcode_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="최윤정님 에코머니"
@@ -40,6 +41,7 @@
 
 
         <TextView
+            android:id="@+id/dialog_barcode_mileage_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="56,000 P"
@@ -48,6 +50,14 @@
             android:layout_gravity="center"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/helveticaneue_thin"/>
+    
+    <ImageView
+        android:id="@+id/dialog_barcode_image"
+        android:layout_width="275dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="27dp"
+        android:layout_gravity="center_horizontal"
+        />
 
 
 </LinearLayout>

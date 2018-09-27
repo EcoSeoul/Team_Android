@@ -5,6 +5,7 @@ import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,8 +55,15 @@ class DonationFragment : Fragment() {
                 donationImage.setBackgroundResource(R.drawable.donation_1_banner)
                 donationIconImage.setBackgroundResource(R.drawable.donation_tree)
                 donationTitleText.text = "사막화 방지를 위한 나무 기부"
+                donationExplainText.isScrollbarFadingEnabled = false
+                donationExplainText.text =
+                        "사막화, 황사를 막을 수 있는 유일한 해결책은 나무를 심는 일입니다.\r\n" +
+                        "한 사람이 평생 열 그루의 나무를 심는다면 기후변화, 사막화, 황사를 방지할 수 있습니다.\r\n" +
+                        "이는 나무 열 그루를 심어 이산화탄소를 흡수하는 효과도 크겠지만 더 중요한 것은 사람들의 마음과 삶의 변화를 뜻하는 것입니다. 사람의 마음이 바뀌면 기후변화, 사막화 문제도 해결될 수 있습니다.\r\n" +
+                        "에코마일리지 회원들의 기부는 나무 한 그루, 한 그루가 모여 숲이 이루어지듯 사막화 방지의 큰 밑거름이 될 것입니다"
+                donationExplainText.movementMethod = ScrollingMovementMethod()
                 url = "http://www.greenasia.kr/"
-                org_idx = 0
+                org_idx = 1
                 org_name = "푸른아시아"
             }
 
@@ -64,7 +72,7 @@ class DonationFragment : Fragment() {
                 donationIconImage.setBackgroundResource(R.drawable.donation_tree)
                 donationTitleText.text = "사막화 방지를 위한 나무 기부"
                 url = "http://www.futureforest.org/"
-                org_idx = 1
+                org_idx = 2
                 org_name = "미래숲"
             }
 
@@ -73,7 +81,7 @@ class DonationFragment : Fragment() {
                 donationIconImage.setBackgroundResource(R.drawable.donation_energy)
                 donationTitleText.text = "에너지 빈곤층을 위한 기부"
                 url = "http://www.seoulenergyfund.or.kr/"
-                org_idx = 2
+                org_idx = 3
                 org_name = "서울에너지복지시민기금"
             }
         }
