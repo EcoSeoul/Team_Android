@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.eco.ecoseoul.Mileage
 import com.eco.ecoseoul.R
 import kotlinx.android.synthetic.main.list_item_mileage.view.*
 
@@ -36,4 +35,3 @@ class MileageAdapter(val mileageList: ArrayList<Mileage>) : RecyclerView.Adapter
     }
 
 }
-

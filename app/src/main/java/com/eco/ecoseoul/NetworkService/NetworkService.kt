@@ -2,6 +2,7 @@ package com.eco.ecoseoul.NetworkService
 
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,8 +20,8 @@ interface NetworkService {
     @FormUrlEncoded
     @POST("mypage/login")
     fun postLogin(
-            @Field("user_id") user_id : String,
-            @Field("user_pw") user_pw : String
+            @Field("user_id") user_id: String,
+            @Field("user_pw") user_pw: String
     ) : Call<LoginResponse>
 
 }
