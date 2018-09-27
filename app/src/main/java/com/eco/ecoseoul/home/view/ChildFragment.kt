@@ -29,6 +29,8 @@ class ChildFragment : Fragment() {
         horViewpage.adapter = horizontalAdapter
         horViewpage.currentItem = 0
 
+        horViewpage.offscreenPageLimit = 0
+
 
         indicator = view.findViewById(R.id.main_indicator)
         indicator.setViewPager(horViewpage)

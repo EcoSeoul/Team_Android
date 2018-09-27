@@ -14,15 +14,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.eco.ecoseoul.ApplicationController
+import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.donation.view.DonationActivity
 import com.eco.ecoseoul.home.control.ExpandableAdapter
 import com.eco.ecoseoul.home.control.bannerAdapter
+import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.ParentItem
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 /**
@@ -45,6 +52,7 @@ class MainFragment : Fragment() {
     lateinit var mypageButton : ImageButton
     lateinit var barcodeImage : ImageView
     lateinit var barcodeText : TextView
+    lateinit var mileageText : TextView
 
     lateinit var goodsButton : ImageButton
     lateinit var donationButton : ImageButton
@@ -52,13 +60,18 @@ class MainFragment : Fragment() {
     lateinit var milageButton : ImageButton
     lateinit var v : View
     lateinit var mLayoutInflater : LayoutInflater
+    lateinit var mainData : Response<MainResponse>
+
+    lateinit var networkService : NetworkService
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mLayoutInflater = inflater!!
         v = mLayoutInflater!!.inflate(R.layout.fragment_main,container,false)
         init(v)
 
-        var barcodeData = "80101254257810"
+        mainData = LoginActivity.mainData
+
+        var barcodeData = mainData!!.body()!!.userInfo[0].user_barcodenum.toString()
         //var barcodeData : String? = null
 
         if(barcodeData == null){ //바코드 없을 때
@@ -76,6 +89,7 @@ class MainFragment : Fragment() {
             }
         }
 
+        mileageText.text = "에코 마일리지 "+mainData!!.body()!!.userInfo[0].user_mileage
         expandableItems = ArrayList()
 
         var parent = ParentItem("에코머니 가맹점 몰 둘러보기",null,null,PARENT)
@@ -96,6 +110,7 @@ class MainFragment : Fragment() {
         expandableRecycler.adapter = expandableAdapter
         expandableRecycler.isNestedScrollingEnabled = false
 
+
         return v
     }
 
@@ -107,19 +122,20 @@ class MainFragment : Fragment() {
         when(v!!.id){
             R.id.main_goods_button->{
                 //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"goods",Toast.LENGTH_SHORT)
+                Toast.makeText(activity.applicationContext,"goods",Toast.LENGTH_SHORT).show()
             }
             R.id.main_donation_button->{
-                //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"donation",Toast.LENGTH_SHORT)
+                intent = Intent(activity,DonationActivity::class.java)
+                startActivity(intent)
+
             }
             R.id.main_community_button->{
                 //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"community",Toast.LENGTH_SHORT)
+                Toast.makeText(activity.applicationContext,"community",Toast.LENGTH_SHORT).show()
             }
             R.id.main_milage_button->{
                 //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"milage",Toast.LENGTH_SHORT)
+                Toast.makeText(activity.applicationContext,"milage",Toast.LENGTH_SHORT).show()
             }
             R.id.barcode_mypage_button->{
                 Log.d("mainFrag","mypage")
@@ -146,8 +162,10 @@ class MainFragment : Fragment() {
 
         mypageButton = view.findViewById(R.id.barcode_mypage_button)
         barcodeImage = view.findViewById(R.id.home_barcode_image)
+        mileageText = view.findViewById(R.id.barcode_mileage_text)
         barcodeText = view.findViewById(R.id.main_barcode_text)
         barcodeText.setOnClickListener(buttonClick)
+
 
         mypageButton.visibility = View.GONE
 

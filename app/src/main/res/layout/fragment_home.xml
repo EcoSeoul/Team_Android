@@ -59,6 +59,28 @@
                     android:progress="65"
                     android:progressDrawable="@drawable/circular_progress_bar" />
 
+            <ImageView
+                android:id="@+id/home_circle1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/circle_point"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/home_circle2"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/circle_point"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+            <ImageView
+                android:id="@+id/home_circle3"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/circle_point"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+
 
             <TextView
                 android:id="@+id/home_carborn_text"
@@ -127,9 +149,8 @@
 
         <TextView
             android:id="@+id/home_save_text"
-            android:layout_above="@+id/home_save_ment_text"
+            android:layout_above="@+id/home_toBottom_arrow_button"
             android:layout_marginLeft="23dp"
-            android:layout_marginTop="36dp"
             android:text="작년보다 10%를"
             android:includeFontPadding="false"
             android:textSize="28dp"
@@ -138,23 +159,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/home_save_ment_text"
-            android:text="절약한 당신! 최고에요!"
-            android:layout_marginLeft="23dp"
-            android:textSize="28dp"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:textColor="#707070"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/home_toBottom_arrow_button"/>
-
         <ImageButton
             android:id="@+id/home_toBottom_arrow_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/arrow_down_black"
             android:layout_centerHorizontal="true"/>
