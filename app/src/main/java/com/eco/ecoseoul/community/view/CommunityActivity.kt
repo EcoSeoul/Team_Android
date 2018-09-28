@@ -98,6 +98,14 @@ class CommunityActivity : AppCompatActivity() {
                     bestAdapter.setOnItemClickListener(object : ComBestAdapter.ItemClick{
                         override fun onClick(view: View, position: Int) {
                             Toast.makeText(this@CommunityActivity,""+best_post[position].board_idx,Toast.LENGTH_LONG).show()
+
+                            Log.d("detail", "sss")
+
+                            var intent = Intent(this@CommunityActivity,CommunityDetailActivity::class.java)
+                            intent.putExtra("board_idx",best_post[position].board_idx)
+                            intent.putExtra("user_idx",1)
+                            startActivity(intent)
+
                         }
 
                     })
@@ -110,6 +118,15 @@ class CommunityActivity : AppCompatActivity() {
                     listAdapter.setOnItemClickListener(object  : ComAdapter.ItemClick {
                         override fun onClick(view: View, position: Int) {
                             Toast.makeText(this@CommunityActivity, ""+post[position].board_idx, Toast.LENGTH_LONG).show()
+
+                            Log.d("detail", "sss")
+
+                            var intent = Intent(this@CommunityActivity,CommunityDetailActivity::class.java)
+                            intent.putExtra("board_idx",post[position].board_idx)
+                            intent.putExtra("user_idx",1)
+                            startActivity(intent)
+
+
                         }
 
                     })

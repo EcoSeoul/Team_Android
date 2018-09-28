@@ -17,6 +17,7 @@ import android.widget.*
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.community.view.CommunityActivity
 import com.eco.ecoseoul.donation.view.DonationActivity
 import com.eco.ecoseoul.home.control.ExpandableAdapter
 import com.eco.ecoseoul.home.control.bannerAdapter
@@ -135,7 +136,8 @@ class MainFragment : Fragment() {
             }
             R.id.main_community_button->{//커뮤니티 보기 버튼
                 //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"community",Toast.LENGTH_SHORT).show()
+                intent = Intent(activity,CommunityActivity::class.java)
+                startActivity(intent)
             }
             R.id.main_milage_button->{//마일리지 설명 버튼
                 //intent = Intent(activity.applicationContext,)

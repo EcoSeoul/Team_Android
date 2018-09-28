@@ -27,7 +27,7 @@ interface NetworkService {
             @Field("user_pw") user_pw : String
     ) : Call<LoginResponse>
 
-    //. 마이페이지 - 카드 등록
+    //3. 마이페이지 - 카드 등록
     @FormUrlEncoded
     @POST("mypage/ecocard")
     fun postEcoCard(
@@ -35,7 +35,7 @@ interface NetworkService {
             @Field("user_barcodenum") user_barcodenum : String
     ) : Call<BaseModel>
 
-    //. 커뮤니티 리스트 보기
+    //4. 커뮤니티 리스트 보기
     @GET ("board/list")
     fun getComList (
     ) : Call<ComListResponse>
@@ -47,7 +47,7 @@ interface NetworkService {
             @Path("user_idx") user_idx : Int
     ) : Call<ComResponse>
 
-    //. 커뮤니티 게시글 작성
+    //5. 커뮤니티 게시글 작성
     @FormUrlEncoded
     @POST("board")
     fun postWriting(
@@ -57,7 +57,7 @@ interface NetworkService {
     ) : Call<BaseModel>
 
 
-    //3. 기부하기
+    //6. 기부하기
     @FormUrlEncoded
     @POST("donation")
     fun postDation(
@@ -66,4 +66,5 @@ interface NetworkService {
             @Field("user_idx") user_idx : Int,
             @Field("donation_mileage") donation_mileage : Int
     ) : Call<BaseModel>
+
 }
