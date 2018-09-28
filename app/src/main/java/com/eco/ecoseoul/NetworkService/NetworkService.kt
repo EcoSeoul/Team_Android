@@ -1,6 +1,8 @@
 package com.eco.ecoseoul.NetworkService
 
 import com.eco.ecoseoul.BaseModel
+import com.eco.ecoseoul.community.model.ComListResponse
+import com.eco.ecoseoul.community.model.ComResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable
@@ -21,9 +23,39 @@ interface NetworkService {
     @FormUrlEncoded
     @POST("mypage/login")
     fun postLogin(
-            @Field("user_id") user_id: String,
-            @Field("user_pw") user_pw: String
+            @Field("user_id") user_id : String,
+            @Field("user_pw") user_pw : String
     ) : Call<LoginResponse>
+
+    //. 마이페이지 - 카드 등록
+    @FormUrlEncoded
+    @POST("mypage/ecocard")
+    fun postEcoCard(
+            @Field("user_idx") user_idx : Int,
+            @Field("user_barcodenum") user_barcodenum : String
+    ) : Call<BaseModel>
+
+    //. 커뮤니티 리스트 보기
+    @GET ("board/list")
+    fun getComList (
+    ) : Call<ComListResponse>
+
+    //. 커뮤니티 게시글 상세보기
+    @GET("board/{board_idx}/{user_idx}")
+    fun getComPost(
+            @Path("board_idx") board_idx : Int,
+            @Path("user_idx") user_idx : Int
+    ) : Call<ComResponse>
+
+    //. 커뮤니티 게시글 작성
+    @FormUrlEncoded
+    @POST("board")
+    fun postWriting(
+            @Field("board_title") board_title : String,
+            @Field("board_content") board_content : String,
+            @Field("user_idx") user_idx : Int
+    ) : Call<BaseModel>
+
 
     //3. 기부하기
     @FormUrlEncoded

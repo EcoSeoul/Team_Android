@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/helveticaneue_thin"/>
-    
+
     <ImageView
         android:id="@+id/dialog_barcode_image"
         android:layout_width="275dp"

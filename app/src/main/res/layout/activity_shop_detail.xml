@@ -16,7 +16,8 @@
         android:layout_gravity="top"
         android:background="#FFFFFF"
         app:contentInsetEnd="0dp"
-        app:contentInsetStart="0dp">
+        app:contentInsetStart="0dp"
+>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -42,44 +43,53 @@
         </FrameLayout>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="티머니(교통카드) 충전권"
-            android:textColor="#343434"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#EDEDED" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="#26D07C"
+            android:text="신청하기"
             android:textSize="20sp"
             android:fontFamily="@font/notosanscjkkr_medium"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"/>
+            android:layout_alignParentBottom="true"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(주)티모넷"
-            android:textColor="#26D07C"
-            android:textSize="16sp"
-            android:fontFamily="@font/notosanscjkkr_medium"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="299.86dp"
-            android:layout_height="197.67dp"
-            android:background="@drawable/shop_tmoney"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>

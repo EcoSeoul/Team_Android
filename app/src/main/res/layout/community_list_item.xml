@@ -19,8 +19,9 @@
 
 
             <TextView
+                android:id="@+id/com_title"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="47dp"
                 android:layout_marginTop="11dp"
                 android:textColor="#343434"
@@ -31,7 +32,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/image_comment_text_title"
+            android:id="@+id/com_contents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#707070"
@@ -51,6 +52,7 @@
 
 
             <TextView
+                android:id="@+id/com_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="09/21"
@@ -59,6 +61,7 @@
 
 
             <TextView
+                android:id="@+id/com_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="랄랄랄"

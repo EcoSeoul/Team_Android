@@ -4,15 +4,15 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="@drawable/spinner_spinner">
 
 
     <TextView
         android:id="@+id/spinnerText"
-        android:text="카드사 선택"
         android:textSize="20sp"
         android:textColor="#000"
-        android:gravity="center"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="26dp"
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -21,6 +21,7 @@
     <ImageView
         android:src="@drawable/arrow_down_black"
         android:layout_width="48dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginRight="18dp"/>
 
 </LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9dffffff"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/shop_complete">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신청 완료되었습니다.!"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:fontFamily="@font/helveticaneu_bold"
+        android:layout_marginBottom="24dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shop_complete_character"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

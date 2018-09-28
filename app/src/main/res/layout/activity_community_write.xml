@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".community.CommunityWriteActivity"
+    tools:context=".community.view.CommunityWriteActivity"
     android:orientation="vertical"
     android:background="#fff">
 
@@ -41,18 +41,22 @@
                 android:text="등록"
                 android:textSize="17sp"
                 android:textColor="#26D07C"
-                android:layout_marginRight="14dp"/>
+                android:layout_marginRight="14dp"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"/>
 
         </FrameLayout>
     </android.support.v7.widget.Toolbar>
 
 
     <EditText
+        android:id="@+id/board_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:hint="제목을 입력하세요 (15자 이내)"
+        android:fontFamily="@font/notosanscjkkr_regular"
         android:textColorHint="#C7C7CC"
+        android:textColor="#000"
         android:textSize="17sp"
         android:background="@android:color/transparent"
         android:layout_marginLeft="18dp"
@@ -70,11 +74,14 @@
         android:layout_marginHorizontal="4dp"/>
 
     <EditText
+        android:id="@+id/board_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="내용을 입력하세요 (2000자 이내)"
+        android:fontFamily="@font/notosanscjkkr_regular"
         android:textColorHint="#C7C7CC"
         android:textSize="17sp"
+        android:textColor="#000"
         android:background="@android:color/transparent"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="14dp"
