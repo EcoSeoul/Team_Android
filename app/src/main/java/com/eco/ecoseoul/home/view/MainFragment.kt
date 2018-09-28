@@ -19,6 +19,7 @@ import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.community.view.CommunityActivity
 import com.eco.ecoseoul.donation.view.DonationActivity
+import com.eco.ecoseoul.franchise.SearchFranActivity
 import com.eco.ecoseoul.home.control.ExpandableAdapter
 import com.eco.ecoseoul.home.control.bannerAdapter
 import com.eco.ecoseoul.home.model.MainResponse
@@ -123,7 +124,8 @@ class MainFragment : Fragment() {
         var intent : Intent? = null
         when(v!!.id){
             R.id.main_franchise_button->{//가맹점 찾기 버튼
-
+                intent = Intent(activity, SearchFranActivity::class.java)
+                startActivity(intent)
             }
             R.id.main_goods_button->{//샵 가기 버튼
                 //intent = Intent(activity.applicationContext,)

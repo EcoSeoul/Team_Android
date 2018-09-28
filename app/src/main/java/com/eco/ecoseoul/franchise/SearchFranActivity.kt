@@ -6,9 +6,14 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MapsActivity
+import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
 import kotlinx.android.synthetic.main.activity_searchfran.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchFranActivity: AppCompatActivity() {
 
@@ -33,80 +38,101 @@ class SearchFranActivity: AppCompatActivity() {
     lateinit var btn_yangcheon: Button
     lateinit var btn_yeongdeungpo: Button
 
+    lateinit var networkService : NetworkService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_searchfran)
 
+        networkService = ApplicationController.instance.networkService
+
         var onClick = View.OnClickListener { v: View? ->
 
             var intent = Intent(this, MapsActivity::class.java)
-            var areaCode = 0
+            var gu_idx = 0
+            var franchiseResponse = networkService.getFranchises(gu_idx)
             when (v!!.id) {
                 R.id.btn_dongdaemoon -> {
-                    areaCode = 0
+                    gu_idx = 5
                 }
                 R.id.btn_dongjak -> {
-                    areaCode = 0
+                    gu_idx = 16
                 }
                 R.id.btn_eunpyeong -> {
-                    areaCode = 0
+                    gu_idx = 21
                 }
                 R.id.btn_geumchun -> {
-                    areaCode = 0
+                    gu_idx = 17
                 }
                 R.id.btn_gwangjin -> {
-                    areaCode = 0
+                    gu_idx = 8
                 }
                 R.id.btn_jongro -> {
-                    areaCode = 0
+                    gu_idx = 13
                 }
                 R.id.btn_joonggoo -> {
-                    areaCode = 0
+                    gu_idx = 14
                 }
                 R.id.btn_joongrang -> {
-                    areaCode = 0
+                    gu_idx = 6
                 }
                 R.id.btn_kangbook -> {
-                    areaCode = 0
+                    gu_idx = 1
                 }
                 R.id.btn_kangdong -> {
-                    areaCode = 0
+                    gu_idx = 9
                 }
                 R.id.btn_kangnam -> {
-                    areaCode = 0
+                    gu_idx = 12
                 }
                 R.id.btn_kangseo -> {
-                    areaCode = 0
+                    gu_idx = 18
                 }
                 R.id.btn_mapo -> {
-                    areaCode = 0
+                    gu_idx = 22
                 }
                 R.id.btn_no_one -> {
-                    areaCode = 0
+                    gu_idx = 4
                 }
                 R.id.btn_seocho -> {
-                    areaCode = 0
+                    gu_idx = 11
                 }
                 R.id.btn_seongbook -> {
-                    areaCode = 0
+                    gu_idx = 3
                 }
                 R.id.btn_seongdong -> {
-                    areaCode = 0
+                    gu_idx = 7
                 }
                 R.id.btn_songpa -> {
-                    areaCode = 0
+                    gu_idx = 10
                 }
                 R.id.btn_yangcheon -> {
-                    areaCode = 0
+                    gu_idx = 19
                 }
                 R.id.btn_yeongdeungpo -> {
-                    areaCode = 0
+                    gu_idx = 20
                 }
             }
 
-            intent.putExtra("areaCode", areaCode)
+//            franchiseResponse.enqueue(object : Callback<FranchiseResponse>{
+//                override fun onFailure(call: Call<FranchiseResponse>, t: Throwable) {
+//                    Log.d("getFranchise: ", "fail")
+//                }
+//
+//                override fun onResponse(call: Call<FranchiseResponse>, response: Response<FranchiseResponse>) {
+//                    if (response!!.isSuccessful) {
+//                        Log.d("getFranchise:", "success")
+//                        for (i in 0 ..(response!!.body()!!.data.size - 1))
+//                            Log.d("getFranchise: ", response!!.body()!!.data[i].gu_idx.toString())
+//                        intent.putExtra("gu_idx", gu_idx)
+//                        startActivity(intent)
+//                    }
+//                }
+//
+//            })
+            intent.putExtra("gu_idx", gu_idx)
             startActivity(intent)
+
 
         }
 
