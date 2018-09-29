@@ -90,26 +90,28 @@
             android:background="@drawable/exchange_edit_style"/>
 
         <Button
+            android:id="@+id/btn_total_emileage"
             android:layout_width="39.36dp"
             android:layout_height="31.68dp"
-            android:text="전액"
-            android:textSize="14sp"
-            android:textColor="#26D07C"
+            android:layout_marginLeft="9.6dp"
             android:background="@drawable/exchange_btn_style"
-            android:layout_marginLeft="9.6dp"/>
+            android:text="전액"
+            android:textColor="#26D07C"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_exchange_emoney"
         android:layout_width="116.16dp"
         android:layout_height="29.76dp"
-        android:text="에코머니로 전환"
-        android:textSize="14sp"
-        android:textColor="#26D07C"
-        android:background="@drawable/exchange_btn_style"
-        android:layout_marginLeft="9.6dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="39.95dp"
+        android:layout_marginLeft="9.6dp"
         android:layout_marginTop="26.68dp"
-        android:layout_marginBottom="39.95dp"/>
+        android:background="@drawable/exchange_btn_style"
+        android:text="에코머니로 전환"
+        android:textColor="#26D07C"
+        android:textSize="14sp" />
 
 </LinearLayout>

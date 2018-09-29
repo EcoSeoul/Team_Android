@@ -1,8 +1,10 @@
 package com.eco.ecoseoul.NetworkService
 
 import com.eco.ecoseoul.BaseModel
+import com.eco.ecoseoul.GoodsResponse
 import com.eco.ecoseoul.community.model.ComListResponse
 import com.eco.ecoseoul.community.model.ComResponse
+import com.eco.ecoseoul.community.model.CommentResponse
 import com.eco.ecoseoul.franchise.FranchiseResponse
 import com.eco.ecoseoul.franchise.MapsResponse
 import com.eco.ecoseoul.home.model.MainResponse
@@ -39,9 +41,17 @@ interface NetworkService {
             @Field("user_barcodenum") user_barcodenum : String
     ) : Call<BaseModel>
 
-    //. 커뮤니티 리스트 보기
-    @GET ("board/list")
+    // 마이페이지 - 에코마일리지 및 에코머니 사용내역
+    @GET("mypage/usage/{user_idx}/{eco_value}")
+    fun getUsages(
+            @Path("user_idx") user_idx : Int,
+            @Path("eco_value") eco_value : Int
+    ) : Call<BaseModel>
+
+    //4. 커뮤니티 리스트 보기
+    @GET ("board/list/{user_idx}")
     fun getComList (
+            @Path("user_idx") user_idx : Int
     ) : Call<ComListResponse>
 
     //. 커뮤니티 게시글 상세보기
@@ -49,7 +59,7 @@ interface NetworkService {
     fun getComPost(
             @Path("board_idx") board_idx : Int,
             @Path("user_idx") user_idx : Int
-    ) : Call<ComResponse>
+    ) : Call<CommentResponse>
 
     //. 커뮤니티 게시글 작성
     @FormUrlEncoded
@@ -58,6 +68,23 @@ interface NetworkService {
             @Field("board_title") board_title : String,
             @Field("board_content") board_content : String,
             @Field("user_idx") user_idx : Int
+    ) : Call<BaseModel>
+
+    //. 커뮤니티 댓글 작성
+    @FormUrlEncoded
+    @POST("comment")
+    fun postComment(
+            @Field("board_idx") board_idx : Int,
+            @Field("user_idx") user_idx : Int,
+            @Field("cmt_content") cmt_content : String
+    ) : Call<BaseModel>
+
+    //. 커뮤니티 좋아요
+    @FormUrlEncoded
+    @POST("board/like")
+    fun postLike(
+            @Field("user_idx") user_idx : Int,
+            @Field("board_idx") board_idx :Int
     ) : Call<BaseModel>
 
 
@@ -102,5 +129,11 @@ interface NetworkService {
     fun getFranInfo(
             @Path("frc_idx") frc_idx : Int
     ) : Call<MapsResponse>
+
+    //. 마이페이지 상품 신청 내역
+    @GET("mypage/mygoods/{user_idx}")
+    fun getMyGoods(
+            @Path("user_idx") user_idx : Int
+    ) : Call<GoodsResponse>
 
 }

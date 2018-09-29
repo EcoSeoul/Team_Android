@@ -27,6 +27,7 @@ import com.eco.ecoseoul.home.control.bannerAdapter
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.ParentItem
 import com.eco.ecoseoul.shop.view.ShopActivity
+import com.eco.ecoseoul.mypage.MypageActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
@@ -152,6 +153,8 @@ class MainFragment : Fragment() {
             }
             R.id.barcode_mypage_button->{ //마이페이지 버튼
                 Log.d("mainFrag","mypage")
+                intent = Intent(activity, MypageActivity::class.java)
+                startActivity(intent)
             }
             R.id.main_barcode_text->{ // 에코머니 등록
                 var ecomoneyDialog = CardRegiDialog(activity)

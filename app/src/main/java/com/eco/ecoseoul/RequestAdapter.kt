@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class RequestAdapter(val requestList: ArrayList<RequestItem>) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class RequestAdapter(val requestList: ArrayList<MyGoods>) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(p0: ViewHolder?, p1: Int) {
-        val request : RequestItem = requestList[p1]
+        val request : MyGoods = requestList[p1]
 
-        p0?.requestName?.text = request.requestTitle
-        p0?.requestDate?.text = request.requestDate
+        p0?.requestName?.text = request.goods_name
+        p0?.requestDate?.text = request.mileage_date
     }
 
     override fun onCreateViewHolder(p0: ViewGroup?, p1: Int): ViewHolder {

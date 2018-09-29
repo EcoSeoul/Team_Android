@@ -65,8 +65,8 @@
             android:background="@drawable/selector_kangseo"
             android:padding="0dp"
             android:text="강서"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -80,8 +80,8 @@
             android:background="@drawable/selector_yeongdeungpo"
             android:padding="0dp"
             android:text="영등포"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -109,8 +109,8 @@
             android:padding="0dp"
             android:text="\t양천\n\t구로"
             android:textAlignment="viewStart"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="@+id/btn_yeongdeungpo"
             app:layout_constraintTop_toBottomOf="@+id/btn_kangseo" />
 
@@ -123,8 +123,8 @@
             android:background="@drawable/selector_mapo"
             android:padding="0dp"
             android:text="마포"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_yeongdeungpo"
             app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
@@ -137,8 +137,8 @@
             android:background="@drawable/selector_geumchun"
             android:padding="0dp"
             android:text="금천\n관악"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btn_yangcheon" />
 
@@ -150,8 +150,8 @@
             android:background="@drawable/selector_dongjak"
             android:padding="0dp"
             android:text="동작"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_geumchun"
             app:layout_constraintEnd_toEndOf="@+id/btn_geumchun" />
 
@@ -165,8 +165,8 @@
             android:background="@drawable/selector_joonggoo"
             android:padding="0dp"
             android:text="중구\n용산"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_dongjak"
             app:layout_constraintStart_toEndOf="@+id/btn_yangcheon"
             app:layout_constraintTop_toTopOf="@+id/guideline"
@@ -180,8 +180,8 @@
             android:background="@drawable/selector_jongro"
             android:padding="0dp"
             android:text="종로\n서대문"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_joonggoo"
             app:layout_constraintEnd_toEndOf="@+id/btn_joonggoo" />
 
@@ -193,8 +193,8 @@
             android:background="@drawable/selector_eunpyeong"
             android:padding="0dp"
             android:text="은평"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_yeongdeungpo"
             app:layout_constraintEnd_toEndOf="@+id/btn_dongjak" />
 
@@ -207,8 +207,8 @@
             android:background="@drawable/selector_seocho"
             android:padding="0dp"
             android:text="서초"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_geumchun"
             app:layout_constraintStart_toEndOf="@+id/btn_dongjak"
             app:layout_constraintTop_toTopOf="@+id/btn_kangnam" />
@@ -221,8 +221,8 @@
             android:background="@drawable/selector_kangnam"
             android:padding="0dp"
             android:text="강남"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/btn_seocho"
             tools:layout_editor_absoluteY="202dp" />
 
@@ -234,8 +234,8 @@
             android:background="@drawable/selector_seongdong"
             android:padding="0dp"
             android:text="성동"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/btn_joonggoo"
             app:layout_constraintTop_toTopOf="@+id/btn_joonggoo" />
 
@@ -248,8 +248,8 @@
             android:background="@drawable/selector_gwangjin"
             android:padding="0dp"
             android:text="광진"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_seocho"
             app:layout_constraintStart_toStartOf="@+id/btn_seongdong" />
 
@@ -262,8 +262,8 @@
             android:background="@drawable/selector_songpa"
             android:padding="0dp"
             android:text="송파"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/btn_kangnam"
             app:layout_constraintTop_toTopOf="@+id/btn_kangdong" />
 
@@ -276,8 +276,8 @@
             android:background="@drawable/selector_kangdong"
             android:padding="0dp"
             android:text="강동"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/btn_gwangjin"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -290,8 +290,8 @@
             android:background="@drawable/selector_dongdaemoon"
             android:padding="0dp"
             android:text="동대문"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintEnd_toStartOf="@+id/btn_kangdong"
             app:layout_constraintTop_toTopOf="@+id/btn_jongro" />
 
@@ -304,8 +304,8 @@
             android:background="@drawable/selector_joongrang"
             android:padding="0dp"
             android:text="중랑"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_kangdong"
             app:layout_constraintStart_toEndOf="@+id/btn_jongro" />
 
@@ -318,22 +318,22 @@
             android:background="@drawable/selector_seongbook"
             android:padding="0dp"
             android:text="성북"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_joonggoo"
             app:layout_constraintStart_toEndOf="@+id/btn_eunpyeong" />
 
         <Button
             android:id="@+id/btn_no_one"
-            android:layout_width="50dp"
+            android:layout_width="46dp"
             android:layout_height="77dp"
             android:layout_marginBottom="40dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginEnd="80dp"
             android:background="@drawable/selector_no_one"
             android:padding="0dp"
             android:text="노원"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_joongrang"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -347,8 +347,8 @@
             android:background="@drawable/selector_kangbook"
             android:padding="0dp"
             android:text="강북\n도봉"
-            android:textSize="12dp"
             android:textColor="#727272"
+            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_seongbook"
             app:layout_constraintStart_toEndOf="@+id/btn_eunpyeong"
             app:layout_constraintTop_toTopOf="parent" />
