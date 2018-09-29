@@ -13,31 +13,28 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/main_toolbar"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/com_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="56dp"
             android:layout_gravity="top"
             android:background="#FFFFFF"
-            android:elevation="4dp"
             app:contentInsetEnd="0dp"
-            app:contentInsetStart="0dp"
-            android:layout_marginTop="11dp">
+            app:contentInsetStart="0dp">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFFFFF">
-
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center_vertical"
                     android:text="커뮤니티"
                     android:textColor="#343434"
-                    android:textSize="18dp"/>
+                    android:textSize="17sp"
+                    android:layout_gravity="center"/>
+
+
             </FrameLayout>
         </android.support.v7.widget.Toolbar>
 
@@ -76,6 +73,7 @@
                     android:textSize="13dp" />
 
                 <TextView
+                    android:id="@+id/com_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="|"
@@ -117,6 +115,7 @@
 
 
                     <TextView
+                        android:id="@+id/request_text_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09/21"
@@ -125,6 +124,7 @@
 
 
                     <TextView
+                        android:id="@+id/request_text_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="랄랄랄"
@@ -138,7 +138,7 @@
                         android:gravity="right">
 
                         <ImageButton
-                            android:id="@+id/com_like"
+                            android:id="@+id/com_detail_like"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/community_recommendation_color" />
@@ -185,56 +185,57 @@
             android:layout_marginTop="15.5dp"
             android:layout_marginBottom="12.5dp"/>
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/com_comment_rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp">
-        </android.support.v7.widget.RecyclerView>
-
-
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom">
+            android:layout_height="match_parent">
 
-
-            <FrameLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/com_comment_rv"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="bottom">
-
+                android:layout_height="0dp"
+                android:layout_weight="8">
+            </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp">
+
 
                     <EditText
                         android:id="@+id/contents_comment_edit"
                         android:layout_width="275dp"
-                        android:layout_height="31dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textSize="13sp"
                         android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
                         android:background="@drawable/comments_style"
                         android:cursorVisible="false"
-                        android:layout_marginLeft="20dp"/>
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#707070"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:padding="5dp"/>
 
                     <Button
-                        android:id="@+id/video_contents_comment_post_btn"
+                        android:id="@+id/comment_post_btn"
                         android:layout_width="60dp"
-                        android:layout_height="45dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="right|bottom"
                         android:background="#fff"
                         android:text="작성"
                         android:textSize="17sp"
-                        android:textColor="#343434"/>
+                        android:textColor="#343434"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        />
+
+
+
                 </LinearLayout>
-
-
-
-            </FrameLayout>
-
 
         </LinearLayout>
 

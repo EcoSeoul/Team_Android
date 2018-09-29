@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.BaseModel
 import com.eco.ecoseoul.NetworkService.NetworkService
@@ -32,6 +33,14 @@ class CommunityWriteActivity : AppCompatActivity() {
         networkService = ApplicationController.instance.networkService
 
         btn.setOnClickListener { v: View? ->
+
+            if(board_content.text.toString().isEmpty()) {
+                Toast.makeText(this, "내용을 입력해주세요!", Toast.LENGTH_LONG).show()
+            }
+            if(board_title.text.toString().isEmpty()) {
+                Toast.makeText(this, "제목을 입력해주세요!", Toast.LENGTH_LONG).show()
+            }
+
             val write = networkService.postWriting(board_title.text.toString(),board_content.text.toString(),1)
             write.enqueue(object : Callback<BaseModel> {
                 override fun onFailure(call: Call<BaseModel>?, t: Throwable?) {

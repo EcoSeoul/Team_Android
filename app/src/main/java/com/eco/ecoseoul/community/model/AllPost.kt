@@ -8,5 +8,7 @@ data class AllPost(
         var user_idx : Int,
         var board_like : Int,
         var board_cmtnum : Int,
-        var User_name : String
+        var User_name : String,
+        var writer_check : Boolean,
+        var likeFlag : Boolean
 )

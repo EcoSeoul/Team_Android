@@ -38,8 +38,12 @@
         <activity android:name=".MapsActivity" />
         <activity android:name=".shop.ShopActivity" />
         <activity android:name=".shop.ShopDetailActivity" />
-        <activity android:name=".ShopDialog" android:theme="@style/Theme.Transparent"/>
-        <activity android:name=".RegistrationDialog" android:theme="@style/Theme.Transparent"/>
+        <activity
+            android:name=".ShopDialog"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name=".RegistrationDialog"
+            android:theme="@style/Theme.Transparent" />
         <activity android:name=".MypageMyListActivity">
         </activity>
         <activity android:name=".donation.view.DonationActivity"></activity>

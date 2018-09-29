@@ -9,12 +9,17 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.support.v7.widget.Toolbar
 import android.widget.LinearLayout
+import com.eco.ecoseoul.NetworkService.NetworkService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageMyListActivity : AppCompatActivity() {
 
     lateinit var toolbar: Toolbar
     lateinit var tablayout: TabLayout
     lateinit var viewPager : ViewPager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +31,19 @@ class MypageMyListActivity : AppCompatActivity() {
         tablayout = findViewById<View>(R.id.my_list_tab) as TabLayout
         tablayout.setupWithViewPager(viewPager)
 
-        val recyclerView = findViewById<View>(R.id.request_list) as RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        val rq = ArrayList<RequestItem>()
 
-        rq.add(RequestItem("티머니 충전권", "2018.08.26"))
-        rq.add(RequestItem("최고급 텀블러", "2018.08.26"))
-        rq.add(RequestItem("이민형 멋잠", "2018.08.26"))
 
-        val adapter = RequestAdapter(rq)
-        recyclerView.adapter = adapter
+//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+//
+//        val rq = ArrayList<MyGoods>()
+//
+//        rq.add(MyGoods("티머니 충전권", 20, "2018.08.26", "2"))
+//        rq.add(MyGoods("최고급 텀블러", 20, "2018.08.26", "2"))
+//        rq.add(MyGoods("이민형 멋잠", 20, "2018.08.26", "2"))
+//
+//        val adapter = RequestAdapter(rq)
+//        recyclerView.adapter = adapter
 
     }
 

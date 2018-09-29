@@ -7,10 +7,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.community.control.ComAdapter
 import com.eco.ecoseoul.community.control.ComBestAdapter
 import com.eco.ecoseoul.community.model.AllPost
@@ -30,6 +33,10 @@ class CommunityActivity : AppCompatActivity() {
     var img : Int = 0
     var comBest : BestPost? = null
 
+    var user_idx = 0
+    var likeFlag = false
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_community)
@@ -37,6 +44,11 @@ class CommunityActivity : AppCompatActivity() {
         networkService = ApplicationController.instance.networkService
         bestRecycler = findViewById(R.id.com_best_rv)
         commRecycler = findViewById(R.id.com_rv)
+
+        user_idx =SharedPreference.instance!!.getPrefIntegerData("user_idx")
+
+
+
 //        val com_best_title : TextView = findViewById<View>(R.id.com_best_title) as TextView
 //        val com_best_contents : TextView = findViewById<View>(R.id.com_best_contents) as TextView
 //        val com_best_date : TextView = findViewById<View>(R.id.com_best_date) as TextView
@@ -65,11 +77,6 @@ class CommunityActivity : AppCompatActivity() {
         }
 
 
-//        for (i in 1..community!!.all_list) {
-//            post.add(Post("민형이 멋잠$i","민형이 뱃살","09/27","강세린"))
-//        }
-
-//        com_best_title.text = community!!.best_list[2].toString()
 
 
 
@@ -79,7 +86,7 @@ class CommunityActivity : AppCompatActivity() {
         Log.d("asdf","comm resume")
         var best_post = ArrayList<BestPost>()
         var post = ArrayList<AllPost>()
-        val comListResponse = networkService.getComList()
+        val comListResponse = networkService.getComList(user_idx)
         comListResponse.enqueue(object : Callback<ComListResponse> {
             override fun onFailure(call: Call<ComListResponse>?, t: Throwable?) {
                 Log.d("asdf","ffff")
@@ -92,14 +99,18 @@ class CommunityActivity : AppCompatActivity() {
                     //bset list 부분
                     best_post = response!!.body()!!.best_list
 
+                    for(i in 0..response!!.body()!!.best_list.size -1){
+                        Log.d("asdfasdf","aaaaa : "+response!!.body()!!.best_list[i].board_title)
+                    }
 
                     var bestAdapter : ComBestAdapter = ComBestAdapter(best_post)
 
                     bestAdapter.setOnItemClickListener(object : ComBestAdapter.ItemClick{
                         override fun onClick(view: View, position: Int) {
-                            Toast.makeText(this@CommunityActivity,""+best_post[position].board_idx,Toast.LENGTH_LONG).show()
+//                            Toast.makeText(this@CommunityActivity,""+best_post[position].board_idx,Toast.LENGTH_LONG).show()
 
                             Log.d("detail", "sss")
+
 
                             var intent = Intent(this@CommunityActivity,CommunityDetailActivity::class.java)
                             intent.putExtra("board_idx",best_post[position].board_idx)
@@ -117,13 +128,14 @@ class CommunityActivity : AppCompatActivity() {
 
                     listAdapter.setOnItemClickListener(object  : ComAdapter.ItemClick {
                         override fun onClick(view: View, position: Int) {
-                            Toast.makeText(this@CommunityActivity, ""+post[position].board_idx, Toast.LENGTH_LONG).show()
+//                            Toast.makeText(this@CommunityActivity, ""+post[position].board_idx, Toast.LENGTH_LONG).show()
 
                             Log.d("detail", "sss")
 
+
                             var intent = Intent(this@CommunityActivity,CommunityDetailActivity::class.java)
                             intent.putExtra("board_idx",post[position].board_idx)
-                            intent.putExtra("user_idx",1)
+                            intent.putExtra("user_idx",user_idx)
                             startActivity(intent)
 
 
