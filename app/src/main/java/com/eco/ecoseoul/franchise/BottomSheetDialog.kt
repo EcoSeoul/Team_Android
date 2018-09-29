@@ -18,18 +18,23 @@ import javax.security.auth.callback.Callback
 
 class BottomSheetDialog() : BottomSheetDialogFragment(), View.OnClickListener {
 
-    val args = arguments
-    val frc_idx = args.getInt("frc_idx", 0)
-
     private var tv_fran_name: TextView? = null
     private var tv_fran_type: TextView? = null
     private var tv_fran_addr: TextView? = null
     private var tv_fran_num: TextView? = null
     lateinit var networkService : NetworkService
+     var frc_idx = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("boottttttom","oncreateonasdjnkasd")
+        frc_idx = arguments!!.getInt("frc_index")
+        Log.d("asdfkasdkfjl",""+frc_idx)
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.bottsheet_maps, container, false)
-
+        Log.d("boottttom",""+frc_idx)
         var frcInfo = frc_idx;
         networkService = ApplicationController.instance!!.networkService
         tv_fran_name = view.findViewById<View>(R.id.tv_fran_name) as TextView
@@ -61,7 +66,6 @@ class BottomSheetDialog() : BottomSheetDialogFragment(), View.OnClickListener {
 
     companion object {
 
-        val instance: BottomSheetDialog
-            get() = BottomSheetDialog()
+        lateinit var instance : BottomSheetDialog
     }
 }

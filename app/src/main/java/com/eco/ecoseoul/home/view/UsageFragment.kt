@@ -12,6 +12,7 @@ import com.gelitenight.waveview.library.WaveView
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.home.control.WaveHelper
@@ -39,6 +40,8 @@ class UsageFragment() : Fragment() {
     lateinit var saveText : TextView
     lateinit var toBottButton : ImageButton
 
+    var mainData : Response<MainResponse>? = null
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_usage,container,false)
         Log.d("asdf","usageFragment")
@@ -50,9 +53,9 @@ class UsageFragment() : Fragment() {
         waveViewPast = view.findViewById(R.id.waveViewPast)
         waveViewPast.setShapeType(WaveView.ShapeType.SQUARE)
         mWaveHelperPast = WaveHelper(waveViewPast)
-        var mainData : Response<MainResponse>? = null
-        var context = MainActivity.mContext as MainActivity
-        mainData = context.getData()
+//        var context = MainActivity.mContext as MainActivity
+//        mainData = context.getData()
+        mainData = ApplicationController!!.instance.mainItems
         var calendar = Calendar.getInstance()
 
         when(arguments.getInt("usage")){

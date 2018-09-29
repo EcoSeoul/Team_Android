@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.PagerAdapter
 import com.eco.ecoseoul.home.view.HomeFragment
 import com.eco.ecoseoul.home.view.UsageFragment
 
@@ -40,4 +41,5 @@ class HorizonAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getCount(): Int {
         return 4
     }
+
 }

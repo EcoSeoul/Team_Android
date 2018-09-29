@@ -19,34 +19,36 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".home.view.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
-        <activity android:name=".home.view.AllActivity"/>
-        <activity android:name=".community.view.CommunityActivity">
-
-        </activity>
+        <activity android:name=".home.view.AllActivity" />
+        <activity android:name=".community.view.CommunityActivity"></activity>
         <activity android:name=".community.view.CommunityDetailActivity" />
         <activity android:name=".community.view.CommunityWriteActivity" />
-        <activity android:name=".RegistrationActivity">
-        </activity>
-
+        <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".franchise.SearchFranActivity" />
         <activity android:name=".MapsActivity" />
-        <activity android:name=".shop.ShopActivity" />
-        <activity android:name=".shop.ShopDetailActivity" />
+        <activity android:name=".shop.view.ShopActivity" />
+        <activity android:name=".shop.view.ShopDetailActivity" />
         <activity
             android:name=".ShopDialog"
             android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".RegistrationDialog"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".MypageMyListActivity">
+        <activity android:name=".MypageMyListActivity"></activity>
+        <activity android:name=".donation.view.DonationActivity" />
+        <activity
+            android:name=".donation.view.DonationCompleteActivity"
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name=".home.view.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
-        <activity android:name=".donation.view.DonationActivity"></activity>
         <activity android:name=".mypage.MypageActivity">
         </activity>
 

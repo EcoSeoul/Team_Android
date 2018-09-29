@@ -2,14 +2,12 @@ package com.eco.ecoseoul.home.view
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.NetworkService.NetworkService
@@ -27,21 +25,22 @@ class LoginActivity : AppCompatActivity() {
     lateinit var idEdit : EditText
     lateinit var pwEdit : EditText
     lateinit var loginButton : Button
+    lateinit var signupButton : TextView
     lateinit var networkService: NetworkService
 
-    companion object {
-        lateinit var mainData: Response<MainResponse>
-    }
+//    companion object {
+//        lateinit var mainData: Response<MainResponse>
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        SharedPreference.instance!!.load(this)
+        //SharedPreference.instance!!.load(this)
         networkService = ApplicationController!!.instance.networkService
-        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
-            Log.d("test",SharedPreference.instance!!.getPrefStringData("user_name"))
-            getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
-        }
+//        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
+//            Log.d("test",SharedPreference.instance!!.getPrefStringData("user_name"))
+//            getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
+//        }
         idEdit = findViewById(R.id.login_id_edit)
         pwEdit = findViewById(R.id.login_pw_edit)
         loginButton = findViewById(R.id.login_login_button)
@@ -75,6 +74,12 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
         }
+
+        signupButton = findViewById(R.id.login_signup_button)
+        signupButton.setOnClickListener { v : View? ->
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ecomileage.seoul.go.kr/home/join.do?menuNo=21"))
+            startActivity(intent)
+        }
     }
 
     fun getMainItems(user_idx : Int){
@@ -93,7 +98,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("Network",""+response!!.body()!!.usageData.carbon.percentage)
                     Log.d("Network",""+response!!.body()!!.userInfo[0].user_barcodenum)
                     Log.d("Network",""+response!!.body()!!.userInfo[0].user_mileage)
-                    mainData = response
+                    //mainData = response
+                    ApplicationController!!.instance.mainItems = response
                     var intent = Intent(applicationContext,MainActivity::class.java)
                     startActivity(intent)
                     finish()

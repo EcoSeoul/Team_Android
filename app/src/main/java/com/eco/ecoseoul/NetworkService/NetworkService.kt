@@ -9,6 +9,8 @@ import com.eco.ecoseoul.franchise.FranchiseResponse
 import com.eco.ecoseoul.franchise.MapsResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
+import com.eco.ecoseoul.shop.model.ShopDetailResponse
+import com.eco.ecoseoul.shop.model.ShopListResponse
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import retrofit2.Call
 import retrofit2.http.*
@@ -31,7 +33,7 @@ interface NetworkService {
             @Field("user_pw") user_pw : String
     ) : Call<LoginResponse>
 
-    //3. 마이페이지 - 카드 등록
+    //. 마이페이지 - 카드 등록
     @FormUrlEncoded
     @POST("mypage/ecocard")
     fun postEcoCard(
@@ -59,7 +61,7 @@ interface NetworkService {
             @Path("user_idx") user_idx : Int
     ) : Call<CommentResponse>
 
-    //5. 커뮤니티 게시글 작성
+    //. 커뮤니티 게시글 작성
     @FormUrlEncoded
     @POST("board")
     fun postWriting(
@@ -86,7 +88,7 @@ interface NetworkService {
     ) : Call<BaseModel>
 
 
-    //6. 기부하기
+    //3. 기부하기
     @FormUrlEncoded
     @POST("donation")
     fun postDation(
@@ -94,6 +96,26 @@ interface NetworkService {
             @Field("org_name") org_name : String,
             @Field("user_idx") user_idx : Int,
             @Field("donation_mileage") donation_mileage : Int
+    ) : Call<BaseModel>
+
+    //샵 상품 목록
+    @GET("shop")
+    fun getShopList() : Call<ShopListResponse>
+
+    //샵 상품 상세보기
+    @GET("shop/{goods_idx}")
+    fun getShopDetail(
+            @Path("goods_idx") goods_idx : Int
+    ) : Call<ShopDetailResponse>
+
+    //샵 상품 신청하기
+    @FormUrlEncoded
+    @POST("shop")
+    fun postShop(
+            @Field("goods_idx") goods_idx: Int,
+            @Field("goods_name") goods_name : String,
+            @Field("goods_price") goods_price : Int,
+            @Field("user_idx") user_idx : Int
     ) : Call<BaseModel>
 
     //4. 가맹점 찾기, 위치 불러오기

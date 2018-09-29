@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.home.control.ProgressBarAnimation
@@ -39,8 +40,10 @@ class HomeFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_home,container,false)
 
         init(view)
-        var context = activity as MainActivity
-        mainData = context.getData()
+//        var context = activity as MainActivity
+//        mainData = context.getData()
+
+        mainData = ApplicationController!!.instance.mainItems
 
         var calendar = Calendar.getInstance()
         carbonDate.text = ""+mainData!!.body()!!.term[0]+"월 ~ "+calendar.get(Calendar.MONTH)+"월"
