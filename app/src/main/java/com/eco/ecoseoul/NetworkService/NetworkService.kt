@@ -37,6 +37,13 @@ interface NetworkService {
             @Field("user_barcodenum") user_barcodenum : String
     ) : Call<BaseModel>
 
+    // 마이페이지 - 에코마일리지 및 에코머니 사용내역
+    @GET("mypage/usage/{user_idx}/{eco_value}")
+    fun getUsages(
+            @Path("user_idx") user_idx : Int,
+            @Path("eco_value") eco_value : Int
+    ) : Call<BaseModel>
+
     //4. 커뮤니티 리스트 보기
     @GET ("board/list")
     fun getComList (

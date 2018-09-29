@@ -1,12 +1,17 @@
 package com.eco.ecoseoul.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import com.eco.ecoseoul.R
+import kotlinx.android.synthetic.main.dialog_exchange.*
+import kotlinx.android.synthetic.main.dialog_exchange.view.*
 
 class MypageActivity : AppCompatActivity() {
     lateinit var btn_my_emileage_detail : Button
@@ -22,44 +27,73 @@ class MypageActivity : AppCompatActivity() {
     lateinit var btn_my_logout : Button
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        Log.d("MypageActivity>> ", "onCreate")
         super.onCreate(savedInstanceState, persistentState)
+        Log.d("MypageActivit>>", "after_onCreate")
         setContentView(R.layout.activity_mypage)
 
         var onClick = View.OnClickListener { v: View? ->
 
+            var intent : Intent? = null
             when(v!!.id) {
 
-                R.id.btn_my_emileage_detail -> {
+                R.id.btn_my_emileage_detail -> { //에코 마일리지 상세보기
+                    intent = Intent(this, MileageActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.btn_my_emoney_detail -> { //에코 머니 상세보기
+                    intent = Intent(this, MileageActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.btn_my_exchange1 -> { //에코 마일리지 -> 에코머니 전환 다이얼로그 띄우기
+                    val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_exchange, null)
+                    val builder = AlertDialog.Builder(this)
+                            .setView(dialogView)
+
+                    val alertDialog = builder.show()
+                    alertDialog.btn_total_emileage.setOnClickListener {
+                        //에코 마일리지 전액을 텍스트 뷰에
+                    }
+                    alertDialog.btn_exchange_emoney.setOnClickListener {
+                        //onResume()
+                    }
+                }
+                R.id.btn_my_exchange2 -> { //에코 마일리지 -> 에코머니 전환 다이얼로그 띄우기
+                    val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_exchange, null)
+                    val builder = AlertDialog.Builder(this)
+                            .setView(dialogView)
+
+                    val alertDialog = builder.show()
+                    alertDialog.btn_total_emileage.setOnClickListener {
+                        //에코 마일리지 전액을 텍스트 뷰에
+                    }
+                    alertDialog.btn_exchange_emoney.setOnClickListener {
+                        //onResume()
+                    }
+                }
+                R.id.btn_my_request -> { //신청 내역 보기
+                    /*intent = Intent(this, MyRequestActivity::class.java)
+                    startActivity(intent)*/
+                }
+                R.id.btn_my_donation -> { //기부 내역 보기
+                    /*intent = Intent(this, MyDonationActivity::class.java)
+                    startActivity(intent)*/
+                }
+                R.id.btn_my_post -> { //내가 쓴 글 보기
+                    /*intent = Intent(this, MyPostACtivity::class.java)
+                    startActivity(intent)*/
+                }
+                R.id.btn_my_card -> { //카드 등록하기
+                    /*intent = Intent(this, MyCardActivity::class.java)
+                    startActivity(intent)*/
+                }
+                R.id.btn_my_faq1 -> { //자주 묻는 질문
 
                 }
-                R.id.btn_my_emoney_detail -> {
+                R.id.btn_my_faq2 -> { //자주 묻는 질문
 
                 }
-                R.id.btn_my_exchange1 -> {
-
-                }
-                R.id.btn_my_exchange2 -> {
-
-                }
-                R.id.btn_my_request -> {
-
-                }
-                R.id.btn_my_donation -> {
-
-                }
-                R.id.btn_my_post -> {
-
-                }
-                R.id.btn_my_card -> {
-
-                }
-                R.id.btn_my_faq1 -> {
-
-                }
-                R.id.btn_my_faq2 -> {
-
-                }
-                R.id.btn_my_logout -> {
+                R.id.btn_my_logout -> { //로그아웃
 
                 }
             }
@@ -88,5 +122,7 @@ class MypageActivity : AppCompatActivity() {
         btn_my_logout = findViewById(R.id.btn_my_logout)
         btn_my_logout.setOnClickListener(onClick)
     }
+
+
 
 }
