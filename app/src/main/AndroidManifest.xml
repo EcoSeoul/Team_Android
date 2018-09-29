@@ -19,11 +19,11 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".home.view.LoginActivity">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity android:name=".home.view.AllActivity"/>
         <activity android:name=".community.view.CommunityActivity">
@@ -44,11 +44,6 @@
         </activity>
         <activity android:name=".donation.view.DonationActivity"></activity>
         <activity android:name=".mypage.MypageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
     </application>
