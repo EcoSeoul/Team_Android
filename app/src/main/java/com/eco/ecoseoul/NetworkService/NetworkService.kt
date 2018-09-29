@@ -3,6 +3,8 @@ package com.eco.ecoseoul.NetworkService
 import com.eco.ecoseoul.BaseModel
 import com.eco.ecoseoul.community.model.ComListResponse
 import com.eco.ecoseoul.community.model.ComResponse
+import com.eco.ecoseoul.franchise.FranchiseResponse
+import com.eco.ecoseoul.franchise.MapsResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
 import com.eco.ecoseoul.shop.model.ShopDetailResponse
@@ -88,4 +90,17 @@ interface NetworkService {
             @Field("goods_price") goods_price : Int,
             @Field("user_idx") user_idx : Int
     ) : Call<BaseModel>
+
+    //4. 가맹점 찾기, 위치 불러오기
+    @GET("franchise/{gu_idx}")
+    fun getFranchises(
+            @Path("gu_idx") gu_idx : Int
+    ) : Call<FranchiseResponse>
+
+    //5. 가맹점 상세보기
+    @GET("franchise/detail/{frc_idx}")
+    fun getFranInfo(
+            @Path("frc_idx") frc_idx : Int
+    ) : Call<MapsResponse>
+
 }
