@@ -28,19 +28,19 @@ class LoginActivity : AppCompatActivity() {
     lateinit var signupButton : TextView
     lateinit var networkService: NetworkService
 
-    companion object {
-        lateinit var mainData: Response<MainResponse>
-    }
+//    companion object {
+//        lateinit var mainData: Response<MainResponse>
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        SharedPreference.instance!!.load(this)
+        //SharedPreference.instance!!.load(this)
         networkService = ApplicationController!!.instance.networkService
-        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
-            Log.d("test",SharedPreference.instance!!.getPrefStringData("user_name"))
-            getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
-        }
+//        if(!SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){
+//            Log.d("test",SharedPreference.instance!!.getPrefStringData("user_name"))
+//            getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
+//        }
         idEdit = findViewById(R.id.login_id_edit)
         pwEdit = findViewById(R.id.login_pw_edit)
         loginButton = findViewById(R.id.login_login_button)
@@ -98,7 +98,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("Network",""+response!!.body()!!.usageData.carbon.percentage)
                     Log.d("Network",""+response!!.body()!!.userInfo[0].user_barcodenum)
                     Log.d("Network",""+response!!.body()!!.userInfo[0].user_mileage)
-                    mainData = response
+                    //mainData = response
+                    ApplicationController!!.instance.mainItems = response
                     var intent = Intent(applicationContext,MainActivity::class.java)
                     startActivity(intent)
                     finish()

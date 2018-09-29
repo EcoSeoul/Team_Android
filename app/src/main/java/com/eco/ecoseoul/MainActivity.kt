@@ -1,6 +1,7 @@
 package com.eco.ecoseoul
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var verticalPage : ViewPager
     lateinit var verticalAdapter : VerticalViewAdapter
     lateinit var networkService : NetworkService
+    lateinit var mCallback : customCallback
     var mainData : Response<MainResponse>? = null
 
     companion object {
@@ -67,34 +69,15 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        mCallback = object : customCallback{
+            override fun callbackMethod() {
+                verticalAdapter.notifyDataSetChanged()
+            }
+
+        }
+
        //getMainItems()
 
-    }
-
-    fun getMainItems(){
-        val mainResponse = networkService.getMainItems(1)
-        mainResponse.enqueue(object : Callback<MainResponse>{
-            override fun onFailure(call: Call<MainResponse>?, t: Throwable?) {
-                Log.d("Network","main Failure")
-            }
-
-            override fun onResponse(call: Call<MainResponse>?, response: Response<MainResponse>?) {
-                if(response!!.isSuccessful){
-                    Log.d("Network",response!!.body()!!.message)
-                    Log.d("Network",""+response!!.body()!!.term[0])
-                    Log.d("Network",""+response!!.body()!!.carbon[0])
-                    Log.d("Network",""+response!!.body()!!.totalCarbon)
-                    Log.d("Network",""+response!!.body()!!.usageData.carbon.percentage)
-                    Log.d("Network",""+response!!.body()!!.userInfo[0].user_barcodenum)
-                    Log.d("Network",""+response!!.body()!!.userInfo[0].user_mileage)
-
-                    mainData = response
-                } else {
-                    Log.d("Network","main Client Error")
-                }
-            }
-
-        })
     }
 
     override fun onResume() {
@@ -102,22 +85,63 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity","onResume")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("MainActivity","onRestart")
+        //getMainItems(SharedPreference.instance!!.getPrefIntegerData("user_idx"))
+    }
+
     override fun onStop() {
         super.onStop()
         Log.d("MainActivity","onStop")
     }
 
-    fun getData() : Response<MainResponse>?{
-        return LoginActivity.mainData
-    }
+//    fun getData() : Response<MainResponse>?{
+//        return LoginActivity.mainData
+//    }
 
     fun changePage(){
         verticalPage.setCurrentItem(1,true)
     }
 
+    fun getMainItems(user_idx : Int){
+        val mainResponse = networkService.getMainItems(user_idx)
+        mainResponse.enqueue(object : Callback<MainResponse>{
+            override fun onFailure(call: Call<MainResponse>?, t: Throwable?) {
+                Log.d("Network11","main Failure")
+            }
+
+            override fun onResponse(call: Call<MainResponse>?, response: Response<MainResponse>?) {
+                if(response!!.isSuccessful){
+                    Log.d("Network11",response!!.body()!!.message)
+                    Log.d("Network11",""+response!!.body()!!.term[0])
+                    Log.d("Network11",""+response!!.body()!!.carbon[0])
+                    Log.d("Network11",""+response!!.body()!!.totalCarbon)
+                    Log.d("Network11",""+response!!.body()!!.usageData.carbon.percentage)
+                    Log.d("Network11",""+response!!.body()!!.userInfo[0].user_barcodenum)
+                    Log.d("Network11",""+response!!.body()!!.userInfo[0].user_mileage)
+                    //mainData = response
+                    ApplicationController!!.instance.mainItems = response
+                    //verticalAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d("Network11","main Client Error")
+                }
+            }
+
+        })
+
+    }
+
+
+
+
 
     fun convertDip2Pixels(context: Context, dip: Int): Int {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip.toFloat(), context.getResources().getDisplayMetrics()).toInt()
+    }
+
+    interface customCallback{
+        fun callbackMethod()
     }
 }
 

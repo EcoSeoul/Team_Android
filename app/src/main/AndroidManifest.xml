@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.eco.ecoseoul">
+    package="com.eco.ecoseoul">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".ApplicationController"
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".home.view.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
-        <activity android:name=".home.view.AllActivity"/>
-        <activity android:name=".community.view.CommunityActivity">
-
-        </activity>
+        <activity android:name=".home.view.AllActivity" />
+        <activity android:name=".community.view.CommunityActivity"></activity>
         <activity android:name=".community.view.CommunityDetailActivity" />
         <activity android:name=".community.view.CommunityWriteActivity" />
-        <activity android:name=".RegistrationActivity">
-        </activity>
-
+        <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".franchise.SearchFranActivity" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".shop.view.ShopActivity" />
         <activity android:name=".shop.view.ShopDetailActivity" />
-        <activity android:name=".ShopDialog" android:theme="@style/Theme.Transparent"/>
-        <activity android:name=".RegistrationDialog" android:theme="@style/Theme.Transparent"/>
-        <activity android:name=".MypageMyListActivity">
+        <activity
+            android:name=".ShopDialog"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name=".RegistrationDialog"
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name=".MypageMyListActivity"></activity>
+        <activity android:name=".donation.view.DonationActivity" />
+        <activity
+            android:name=".donation.view.DonationCompleteActivity"
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name=".home.view.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
-        <activity android:name=".donation.view.DonationActivity"></activity>
-        <activity android:name=".donation.view.DonationCompleteActivity" android:theme="@style/Theme.Transparent"/>
     </application>
 
 </manifest>

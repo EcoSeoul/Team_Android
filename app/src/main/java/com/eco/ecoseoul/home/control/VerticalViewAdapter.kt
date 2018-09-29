@@ -4,6 +4,9 @@ import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.PagerAdapter
+import android.util.Log
+import android.view.ViewGroup
 import com.eco.ecoseoul.home.view.ChildFragment
 import com.eco.ecoseoul.home.view.MainFragment
 

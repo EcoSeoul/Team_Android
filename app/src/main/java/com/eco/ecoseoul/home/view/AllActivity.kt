@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.home.control.UsageAdapter
@@ -65,8 +66,9 @@ class AllActivity : AppCompatActivity() {
         init()
 
         var context = MainActivity.mContext as MainActivity
-        var mainData = context.getData()
+        //var mainData = context.getData()
 
+        var mainData = ApplicationController.instance!!.mainItems
         var calendar = Calendar.getInstance()
         var tempCalendar = Calendar.getInstance()
         tempCalendar.add(Calendar.MONTH,-1)

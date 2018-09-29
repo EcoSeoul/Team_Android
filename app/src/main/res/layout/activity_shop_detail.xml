@@ -6,22 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".shop.view.ShopDetailActivity"
     android:background="#fff"
+    android:weightSum="12"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/shop_detail_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="top"
         android:background="#FFFFFF"
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp"
 >
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,19 +32,17 @@
 
             <ImageButton
                 android:id="@+id/shop_mypage_btn"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:background="@drawable/ic_mypage"
-                android:layout_marginTop="5dp"/>
-
-        </FrameLayout>
+                android:background="@drawable/ic_mypage"/>
     </android.support.v7.widget.Toolbar>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="10">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,13 +70,14 @@
                 android:fontFamily="@font/notosanscjkkr_medium"/>
             
             <ImageView
+                android:id="@+id/goods_image"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:background="@drawable/shop_tmoney"
                 android:layout_marginBottom="40dp"/>
 
             <TextView
+                android:id="@+id/goods_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="해당 상품은 1,000원부터 1,000원 단위로\n90,000원까지 신청이 가능합니다."
@@ -102,6 +99,7 @@
 
 
             <TextView
+                android:id="@+id/goods_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1. 이 T-coin은, 선불교통카드에 T-money를 충전하실 수 있는 쿠폰으로 휴대전화 문자메시지로 전송됩니다.\n
@@ -117,29 +115,20 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"/>
-
-
         </LinearLayout>
 
     </ScrollView>
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/shop_detail_purchase_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <Button
-            android:id="@+id/shop_detail_purchase_button"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:background="#26D07C"
-            android:text="신청하기"
-            android:textSize="20sp"
-            android:fontFamily="@font/notosanscjkkr_medium"
-            android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
+        android:background="#26D07C"
+        android:layout_weight="1"
+        android:text="신청하기"
+        android:textSize="20sp"
+        android:fontFamily="@font/notosanscjkkr_medium"
         />
-
-    </RelativeLayout>
 
 
 </LinearLayout>

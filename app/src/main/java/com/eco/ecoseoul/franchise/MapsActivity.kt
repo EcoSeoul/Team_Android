@@ -178,12 +178,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     for (i in 0 ..frcDataList.size -1){
                         Log.d("MapsActivity>> ", "loop for response frcData" + i)
                         val franchise = LatLng(frcDataList.get(i).frc_lat, frcDataList.get(i).frc_long)
-                        var frc_idx = frcDataList.get(i).frc_idx
+                        var frc_idx = 0
 
                         var selectedMarker = mMap.addMarker(MarkerOptions().position(franchise).title("").icon(BitmapDescriptorFactory.fromResource(R.drawable.map_small_green_mark)))
                         mMap.setOnMarkerClickListener(GoogleMap.OnMarkerClickListener { marker ->
                             selectedMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_big_green_mark))
-                            newInstance(frc_idx).show()
+                            //newInstance(frc_idx).show()
+                            var bottomsheet = com.eco.ecoseoul.franchise.BottomSheetDialog()
+//                            var sheetInstance = com.eco.ecoseoul.franchise.BottomSheetDialog.instance
+                            Log.d("wowowowwowowowow",""+frc_idx)
+                            val temp = marker.position
+                            for(i in 0..frcDataList.size-1){
+                                if(frcDataList.get(i).frc_lat == temp.latitude && frcDataList.get(i).frc_long == temp.longitude){
+                                    frc_idx = frcDataList.get(i).frc_idx
+                                }
+                            }
+                            var args = Bundle()
+                            args.putInt("frc_index",frc_idx)
+                            bottomsheet.arguments = args
+                            bottomsheet.show(supportFragmentManager,"")
                             true
                         })
                         mMap.setOnMapClickListener(GoogleMap.OnMapClickListener { marker ->

@@ -2,6 +2,8 @@ package com.eco.ecoseoul
 
 import android.app.Application
 import com.eco.ecoseoul.NetworkService.NetworkService
+import com.eco.ecoseoul.home.model.MainResponse
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -10,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class ApplicationController : Application() {
     lateinit var networkService : NetworkService
+    var mainItems : Response<MainResponse>? = null
     private val baseUrl = "http://13.124.75.47:3000/"
     companion object {
         lateinit var instance : ApplicationController

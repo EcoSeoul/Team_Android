@@ -71,11 +71,13 @@ class MainFragment : Fragment() {
     lateinit var networkService : NetworkService
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.d("MainFragment","createView")
         mLayoutInflater = inflater!!
         v = mLayoutInflater!!.inflate(R.layout.fragment_main,container,false)
         init(v)
 
-        mainData = LoginActivity.mainData
+        //mainData = LoginActivity.mainData
+        mainData = ApplicationController.instance!!.mainItems!!
 
         var barcodeData = mainData!!.body()!!.userInfo[0].user_barcodenum.toString()
         //var barcodeData : String? = null
@@ -157,8 +159,11 @@ class MainFragment : Fragment() {
                 ecomoneyDialog.show()
             }
             R.id.home_barcode_image->{ //바코드 확인
-                var bitmap = encodeAsBitmap(mainData!!.body()!!.userInfo[0].user_barcodenum.toString(),BarcodeFormat.CODE_128,600,300)
-                var mileage = mainData!!.body()!!.userInfo[0].user_mileage
+
+                var barcode = ApplicationController.instance!!.mainItems!!.body()!!.userInfo[0].user_barcodenum
+                var mileage = ApplicationController.instance!!.mainItems!!.body()!!.userInfo[0].user_mileage
+                var bitmap = encodeAsBitmap(barcode.toString(),BarcodeFormat.CODE_128,600,300)
+
                 var name = SharedPreference.instance!!.getPrefStringData("user_name")
 
                 var barcodeDialog = BarcodeDialog(activity,bitmap!!,mileage,name!!)
@@ -203,6 +208,8 @@ class MainFragment : Fragment() {
         mypageButton.setOnClickListener(buttonClick)
 
         scrollView = view.findViewById(R.id.main_scroll_view)
+
+        networkService = ApplicationController.instance!!.networkService
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -210,11 +217,13 @@ class MainFragment : Fragment() {
         if(isVisibleToUser){
 //            var exchanged = v.findViewById<RelativeLayout>(R.id.barcode_standard_layout)
 //            mLayoutInflater.inflate(R.layout.barcode_exchange_item,exchanged)
+            Log.d("MainFragment","visibleYes")
             mypageButton.visibility = View.VISIBLE
             scrollView!!.fullScroll(ScrollView.FOCUS_UP)
         } else {
             if(scrollView != null){
 
+                Log.d("MainFragment","visibleNo")
 //                var exchanged = v.findViewById<RelativeLayout>(R.id.barcode_exchange_layout)
 //                mLayoutInflater.inflate(R.layout.barcode_standard_item,exchanged)
                 mypageButton.visibility = View.GONE
@@ -263,6 +272,59 @@ class MainFragment : Fragment() {
         return bitmap
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("MainFragment","DestroyView")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("MainFragment","stop")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("MainFragment","start")
+
+        val user_idx = SharedPreference!!.instance!!.getPrefIntegerData("user_idx")
+        val mainResponse = networkService.getMainItems(user_idx)
+        mainResponse.enqueue(object : Callback<MainResponse>{
+            override fun onFailure(call: Call<MainResponse>?, t: Throwable?) {
+                Log.d("Network11","main Failure")
+            }
+
+            override fun onResponse(call: Call<MainResponse>?, response: Response<MainResponse>?) {
+                if(response!!.isSuccessful){
+                    ApplicationController!!.instance.mainItems = response
+
+                    var tempData = ApplicationController.instance!!.mainItems
+                    mileageText.text = "에코 마일리지 "+tempData!!.body()!!.userInfo[0].user_mileage
+                    var barcodeData = tempData!!.body()!!.userInfo[0].user_barcodenum.toString()
+                    //var barcodeData : String? = null
+
+                    if(barcodeData == null){ //바코드 없을 때
+                        barcodeText.text = "카드 등록하기"
+                        barcodeText.visibility = View.VISIBLE
+                        barcodeImage.visibility = View.GONE
+                    } else { // 바코드 있을 때
+                        try {
+                            barcodeText.visibility = View.GONE
+                            barcodeImage.visibility = View.VISIBLE
+                            var bitmap = encodeAsBitmap(barcodeData,BarcodeFormat.CODE_128,600,300)
+                            barcodeImage.setImageBitmap(bitmap)
+                        } catch (e : WriterException){
+                            e.printStackTrace()
+                        }
+                    }
+
+                } else {
+                    Log.d("Network11","main Client Error")
+                }
+            }
+
+        })
+    }
+
 //    fun guessAppropriateEncoding(contents : CharSequence) : String?{
 //        for(i in 0..contents.length){
 //            if (contents.get(i) > 0xFF as Char) {
@@ -272,5 +334,4 @@ class MainFragment : Fragment() {
 //
 //        return null
 //    }
-
 }
