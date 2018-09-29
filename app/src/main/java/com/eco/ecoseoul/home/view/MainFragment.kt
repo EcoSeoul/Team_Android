@@ -2,6 +2,7 @@ package com.eco.ecoseoul.home.view
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.ColorDrawable
 import android.media.Image
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,11 +18,13 @@ import android.widget.*
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.donation.view.DonationActivity
 import com.eco.ecoseoul.home.control.ExpandableAdapter
 import com.eco.ecoseoul.home.control.bannerAdapter
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.ParentItem
+import com.eco.ecoseoul.shop.view.ShopActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
@@ -72,8 +75,8 @@ class MainFragment : Fragment() {
 
         mainData = LoginActivity.mainData
 
-        var barcodeData = mainData!!.body()!!.userInfo[0].user_barcodenum.toString()
-        //var barcodeData : String? = null
+        //var barcodeData = mainData!!.body()!!.userInfo[0].user_barcodenum.toString()
+        var barcodeData : String? = null
 
         if(barcodeData == null){ //바코드 없을 때
             barcodeText.text = "카드 등록하기"
@@ -125,8 +128,8 @@ class MainFragment : Fragment() {
 
             }
             R.id.main_goods_button->{//샵 가기 버튼
-                //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"goods",Toast.LENGTH_SHORT).show()
+                intent = Intent(activity,ShopActivity::class.java)
+                startActivity(intent)
             }
             R.id.main_donation_button->{ //기부하러가기 버튼
                 intent = Intent(activity,DonationActivity::class.java)
@@ -145,9 +148,18 @@ class MainFragment : Fragment() {
                 Log.d("mainFrag","mypage")
             }
             R.id.main_barcode_text->{ // 에코머니 등록
-                Log.d("mainFrag","barcode not")
+                var ecomoneyDialog = CardRegiDialog(activity)
+                ecomoneyDialog.window.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+                ecomoneyDialog.show()
             }
             R.id.home_barcode_image->{ //바코드 확인
+                var bitmap = encodeAsBitmap(mainData!!.body()!!.userInfo[0].user_barcodenum.toString(),BarcodeFormat.CODE_128,600,300)
+                var mileage = mainData!!.body()!!.userInfo[0].user_mileage
+                var name = SharedPreference.instance!!.getPrefStringData("user_name")
+
+                var barcodeDialog = BarcodeDialog(activity,bitmap!!,mileage,name!!)
+                barcodeDialog.window.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+                barcodeDialog.show()
 
             }
         }

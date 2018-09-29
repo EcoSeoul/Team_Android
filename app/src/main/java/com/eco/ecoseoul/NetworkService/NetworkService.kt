@@ -5,6 +5,8 @@ import com.eco.ecoseoul.community.model.ComListResponse
 import com.eco.ecoseoul.community.model.ComResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
+import com.eco.ecoseoul.shop.model.ShopDetailResponse
+import com.eco.ecoseoul.shop.model.ShopListResponse
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import retrofit2.Call
 import retrofit2.http.*
@@ -65,5 +67,25 @@ interface NetworkService {
             @Field("org_name") org_name : String,
             @Field("user_idx") user_idx : Int,
             @Field("donation_mileage") donation_mileage : Int
+    ) : Call<BaseModel>
+
+    //샵 상품 목록
+    @GET("shop")
+    fun getShopList() : Call<ShopListResponse>
+
+    //샵 상품 상세보기
+    @GET("shop/{goods_idx}")
+    fun getShopDetail(
+            @Path("goods_idx") goods_idx : Int
+    ) : Call<ShopDetailResponse>
+
+    //샵 상품 신청하기
+    @FormUrlEncoded
+    @POST("shop")
+    fun postShop(
+            @Field("goods_idx") goods_idx: Int,
+            @Field("goods_name") goods_name : String,
+            @Field("goods_price") goods_price : Int,
+            @Field("user_idx") user_idx : Int
     ) : Call<BaseModel>
 }

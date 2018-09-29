@@ -14,6 +14,7 @@ import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.BaseModel
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.donation.control.DonationSpinnerAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +46,7 @@ class DonationFragment : Fragment() {
         val spinnerList = arrayOf("금액 선택","10000 M","20000 M")
         init(view)
 
+        user_idx = SharedPreference.instance!!.getPrefIntegerData("user_idx")
         networkService = ApplicationController!!.instance.networkService
 
 
@@ -66,20 +68,30 @@ class DonationFragment : Fragment() {
                 org_idx = 1
                 org_name = "푸른아시아"
             }
-
             1->{
                 donationImage.setBackgroundResource(R.drawable.donation_2_banner)
                 donationIconImage.setBackgroundResource(R.drawable.donation_tree)
                 donationTitleText.text = "사막화 방지를 위한 나무 기부"
+                donationExplainText.text =
+                        "사막화, 황사를 막을 수 있는 유일한 해결책은 나무를 심는 일입니다.\r\n" +
+                        "한 사람이 평생 열 그루의 나무를 심는다면 기후변화, 사막화, 황사를 방지할 수 있습니다.\r\n" +
+                        "이는 나무 열 그루를 심어 이산화탄소를 흡수하는 효과도 크겠지만 더 중요한 것은 사람들의 마음과 삶의 변화를 뜻하는 것입니다. 사람의 마음이 바뀌면 기후변화, 사막화 문제도 해결될 수 있습니다.\r\n" +
+                        "에코마일리지 회원들의 기부는 나무 한 그루, 한 그루가 모여 숲이 이루어지듯 사막화 방지의 큰 밑거름이 될 것입니다"
+                donationExplainText.movementMethod = ScrollingMovementMethod()
                 url = "http://www.futureforest.org/"
                 org_idx = 2
                 org_name = "미래숲"
             }
-
             2->{
                 donationImage.setBackgroundResource(R.drawable.donation_3_banner)
                 donationIconImage.setBackgroundResource(R.drawable.donation_energy)
                 donationTitleText.text = "에너지 빈곤층을 위한 기부"
+                donationExplainText.text = "별다른 생각 없이 쓰는 에너지, 그러나 우리 주위에는 에너지가 없어 생활의 불편함을 겪고 있는 이웃들이 있습니다.\r\n" +
+                        "작은 방 하나를 데울 수 없고, 좁은 공간조차 밝힐 수 없는 이웃에게 따뜻한 에너지를 전해주세요.\r\n" +
+                        "우리들의 작은 배려로 아낀 에너지가 에너지 빈곤층에게 큰 도움이 됩니다.\r\n" +
+                        "시민들의 기부는 태양광에너지 설치, 주거에너지효율화, 에너지효율 제품 지원 등에 쓰입니다.\r\n" +
+                        "서울에너지복지시민기금은 에너지 나눔을 실천합니다."
+                donationExplainText.movementMethod = ScrollingMovementMethod()
                 url = "http://www.seoulenergyfund.or.kr/"
                 org_idx = 3
                 org_name = "서울에너지복지시민기금"
@@ -101,24 +113,26 @@ class DonationFragment : Fragment() {
                 Toast.makeText(activity,"기부금액을 선택해주세요.",Toast.LENGTH_LONG).show()
             } else { //통신
                 donation_mileage = donationSpinner.selectedItemPosition * 10000
-//                val donationResponse = networkService.postDation(org_idx,org_name!!,user_idx,donation_mileage)
-//                donationResponse.enqueue(object : Callback<BaseModel>{
-//                    override fun onFailure(call: Call<BaseModel>?, t: Throwable?) {
-//
-//                    }
-//
-//                    override fun onResponse(call: Call<BaseModel>?, response: Response<BaseModel>?) {
-//                        if(response!!.isSuccessful){
-//                            var intent = Intent()
-//                            startActivity(intent)
-//                        } else if(response!!.code() == 400){
-//
-//                        } else {
-//
-//                        }
-//                    }
-//
-//                })
+                val donationResponse = networkService.postDation(org_idx,org_name!!,user_idx,donation_mileage)
+                donationResponse.enqueue(object : Callback<BaseModel>{
+                    override fun onFailure(call: Call<BaseModel>?, t: Throwable?) {
+
+                    }
+
+                    override fun onResponse(call: Call<BaseModel>?, response: Response<BaseModel>?) {
+                        if(response!!.isSuccessful){
+                            var intent = Intent(activity,DonationCompleteActivity::class.java)
+                            startActivity(intent)
+                        } else if(response!!.code() == 400){
+                            if(response!!.body()!!.message!!.equals("The user's mileage is insufficient")){
+                                Toast.makeText(activity,"마일리지가 모자랍니다.",Toast.LENGTH_LONG).show()
+                            }
+                        } else {
+
+                        }
+                    }
+
+                })
             }
         }
 

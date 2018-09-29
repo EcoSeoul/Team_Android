@@ -36,13 +36,14 @@
 
         <activity android:name=".franchise.SearchFranActivity" />
         <activity android:name=".MapsActivity" />
-        <activity android:name=".shop.ShopActivity" />
-        <activity android:name=".shop.ShopDetailActivity" />
+        <activity android:name=".shop.view.ShopActivity" />
+        <activity android:name=".shop.view.ShopDetailActivity" />
         <activity android:name=".ShopDialog" android:theme="@style/Theme.Transparent"/>
         <activity android:name=".RegistrationDialog" android:theme="@style/Theme.Transparent"/>
         <activity android:name=".MypageMyListActivity">
         </activity>
         <activity android:name=".donation.view.DonationActivity"></activity>
+        <activity android:name=".donation.view.DonationCompleteActivity" android:theme="@style/Theme.Transparent"/>
     </application>
 
 </manifest>

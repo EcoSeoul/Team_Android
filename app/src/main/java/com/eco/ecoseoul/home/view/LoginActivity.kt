@@ -2,14 +2,12 @@ package com.eco.ecoseoul.home.view
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.MainActivity
 import com.eco.ecoseoul.NetworkService.NetworkService
@@ -27,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var idEdit : EditText
     lateinit var pwEdit : EditText
     lateinit var loginButton : Button
+    lateinit var signupButton : TextView
     lateinit var networkService: NetworkService
 
     companion object {
@@ -74,6 +73,12 @@ class LoginActivity : AppCompatActivity() {
 
                 })
             }
+        }
+
+        signupButton = findViewById(R.id.login_signup_button)
+        signupButton.setOnClickListener { v : View? ->
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ecomileage.seoul.go.kr/home/join.do?menuNo=21"))
+            startActivity(intent)
         }
     }
 

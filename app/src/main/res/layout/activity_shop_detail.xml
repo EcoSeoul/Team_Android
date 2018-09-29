@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shop.ShopDetailActivity"
+    tools:context=".shop.view.ShopDetailActivity"
     android:background="#fff"
     android:orientation="vertical">
 
@@ -80,6 +80,7 @@
 
 
         <Button
+            android:id="@+id/shop_detail_purchase_button"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:background="#26D07C"
