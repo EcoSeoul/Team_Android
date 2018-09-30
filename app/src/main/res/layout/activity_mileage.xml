@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +20,8 @@
     </LinearLayout>
 
     <TabHost
+        android:layout_marginLeft="23dp"
+        android:id="@+id/mileage_tab"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -30,7 +33,10 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp" />
+                android:layout_height="wrap_content"
+                style="@style/Theme.tap"
+
+                />
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -41,12 +47,10 @@
                     android:id="@+id/fl_emileage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:layout_marginTop="16dp"
                     android:gravity="left"
                     android:orientation="vertical"
-                    android:weightSum="3">
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -56,10 +60,10 @@
                         <TextView
                             android:id="@+id/tv_emileage"
                             android:layout_width="wrap_content"
-                            android:layout_height="66dp"
-                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:fontFamily="@font/notosanscjkkr_light"
+                            android:includeFontPadding="false"
                             android:text="50000"
                             android:textSize="45dp"
                             android:textColor="#26D07C"/>
@@ -67,12 +71,19 @@
                         <TextView
                             android:id="@+id/textView6"
                             android:layout_width="wrap_content"
-                            android:layout_height="66dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:fontFamily="@font/notosanscjkkr_light"
-                            android:text="P"
+                            android:includeFontPadding="false"
+                            android:text="M"
+                            android:textColor="#343434"
                             android:textSize="45dp" />
                     </LinearLayout>
+                    
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E6E6E6"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -88,7 +99,9 @@
                             android:layout_weight="2"
                             android:fontFamily="@font/notosanscjkkr_medium"
                             android:text="적립 / 사용 내역"
-                            android:textSize="15dp" />
+                            android:textSize="15dp"
+                            android:textColor="#343434"
+                            />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -108,15 +121,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_light"
-                                android:text="적립 마일리지" />
+                                android:text="적립 마일리지"
+                                android:layout_marginBottom="1dp"
+                                android:textColor="#707070"/>
 
                             <TextView
                                 android:id="@+id/tv_emileage_save"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
+                                android:layout_marginBottom="1dp"
                                 android:fontFamily="@font/notosanscjkkr_medium"
                                 android:text="43000"
+                                android:textColor="#343434"
                                 android:textSize="15dp" />
 
                             <ImageView
@@ -130,7 +147,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_light"
-                                android:text="사용 마일리지" />
+                                android:text="사용 마일리지"
+                                android:layout_marginBottom="1dp"
+                                android:textColor="#707070"/>
 
                             <TextView
                                 android:id="@+id/tv_emileage_use"
@@ -139,13 +158,19 @@
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_medium"
                                 android:text="2000"
+                                android:textColor="#343434"
+                                android:layout_marginBottom="1dp"
                                 android:textSize="15dp" />
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E6E6E6"/>
                     </LinearLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_emileage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
@@ -154,12 +179,9 @@
                     android:id="@+id/fl_emoney"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:layout_marginTop="16dp"
                     android:gravity="left"
-                    android:orientation="vertical"
-                    android:weightSum="3">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -169,10 +191,10 @@
                         <TextView
                             android:id="@+id/tv_emoney"
                             android:layout_width="wrap_content"
-                            android:layout_height="66dp"
-                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:fontFamily="@font/notosanscjkkr_light"
+                            android:includeFontPadding="false"
                             android:text="50000"
                             android:textSize="45dp"
                             android:textColor="#26D07C"/>
@@ -180,27 +202,35 @@
                         <TextView
                             android:id="@+id/textView8"
                             android:layout_width="wrap_content"
-                            android:layout_height="66dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:fontFamily="@font/notosanscjkkr_light"
-                            android:text="M"
-                            android:textSize="45dp" />
+                            android:includeFontPadding="false"
+                            android:text="P"
+                            android:textSize="45dp"
+                            android:textColor="#343434" />
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E6E6E6"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="61dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:layout_marginBottom="5dp"
                             android:fontFamily="@font/notosanscjkkr_medium"
                             android:text="적립 / 사용 내역"
+                            android:textColor="#343434"
                             android:textSize="15dp" />
 
                         <LinearLayout
@@ -221,7 +251,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_light"
-                                android:text="적립 마일리지" />
+                                android:text="적립 마일리지"
+                                android:layout_marginBottom="1dp"
+                                android:textColor="#707070"/>
 
                             <TextView
                                 android:id="@+id/tv_emoney_save"
@@ -230,7 +262,9 @@
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_medium"
                                 android:text="43000"
-                                android:textSize="15dp" />
+                                android:layout_marginBottom="1dp"
+                                android:textSize="15dp"
+                                android:textColor="#343434"/>
 
                             <ImageView
                                 android:layout_width="25dp"
@@ -243,7 +277,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_light"
-                                android:text="사용 마일리지" />
+                                android:text="사용 마일리지"
+                                android:layout_marginBottom="1dp"
+                                android:textColor="#707070"/>
 
                             <TextView
                                 android:id="@+id/tv_emoney_use"
@@ -252,13 +288,19 @@
                                 android:layout_weight="2"
                                 android:fontFamily="@font/notosanscjkkr_medium"
                                 android:text="2000"
+                                android:layout_marginBottom="1dp"
+                                android:textColor="#343434"
                                 android:textSize="15dp" />
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E6E6E6"/>
                     </LinearLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_emoney"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>

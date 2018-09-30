@@ -3,22 +3,15 @@ package com.eco.ecoseoul.shop.view
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageButton
-import android.widget.Toast
-import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
-import com.eco.ecoseoul.mypage.MypageActivity
+import com.eco.ecoseoul.mypage.view.MypageActivity
 import com.eco.ecoseoul.shop.control.ShopListAdapter
 import com.eco.ecoseoul.shop.model.ShopItem
-import com.eco.ecoseoul.shop.model.ShopListResponse
 import kotlinx.android.synthetic.main.activity_shop2.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ShopActivity : AppCompatActivity() {
 
@@ -77,7 +70,7 @@ class ShopActivity : AppCompatActivity() {
         setContentView(R.layout.activity_shop2)
 
         shop_mypage.setOnClickListener {
-            var intent = Intent(this@ShopActivity,MypageActivity::class.java)
+            var intent = Intent(this@ShopActivity, MypageActivity::class.java)
             startActivity(intent)
         }
         var onclick = View.OnClickListener { v : View? ->

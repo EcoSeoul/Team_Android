@@ -3,15 +3,15 @@ package com.eco.ecoseoul.NetworkService
 import com.eco.ecoseoul.BaseModel
 import com.eco.ecoseoul.GoodsResponse
 import com.eco.ecoseoul.community.model.ComListResponse
-import com.eco.ecoseoul.community.model.ComResponse
 import com.eco.ecoseoul.community.model.CommentResponse
 import com.eco.ecoseoul.franchise.FranchiseResponse
 import com.eco.ecoseoul.franchise.MapsResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
+import com.eco.ecoseoul.mypage.model.MileageResponse
+import com.eco.ecoseoul.mypage.model.MypageResponse
 import com.eco.ecoseoul.shop.model.ShopDetailResponse
 import com.eco.ecoseoul.shop.model.ShopListResponse
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -46,7 +46,7 @@ interface NetworkService {
     fun getUsages(
             @Path("user_idx") user_idx : Int,
             @Path("eco_value") eco_value : Int
-    ) : Call<BaseModel>
+    ) : Call<MileageResponse>
 
     //4. 커뮤니티 리스트 보기
     @GET ("board/list/{user_idx}")
@@ -135,5 +135,19 @@ interface NetworkService {
     fun getMyGoods(
             @Path("user_idx") user_idx : Int
     ) : Call<GoodsResponse>
+
+    //마이페이지
+    @GET("mypage/{user_idx}")
+    fun getMyData(
+            @Path("user_idx") user_idx: Int
+    ) : Call<MypageResponse>
+
+    //환전하기
+    @FormUrlEncoded
+    @POST("mypage/exchange")
+    fun postExchange(
+            @Field("user_idx") user_idx : Int,
+            @Field("exchange") exchange : Int
+    ) : Call<BaseModel>
 
 }

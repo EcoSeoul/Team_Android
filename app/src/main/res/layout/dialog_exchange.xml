@@ -32,6 +32,7 @@
 
 
     <TextView
+        android:id="@+id/text_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -53,6 +54,7 @@
             android:layout_gravity="bottom"/>
 
         <TextView
+            android:id="@+id/text_user_mileage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -85,8 +87,10 @@
         android:gravity="center">
 
         <EditText
+            android:id="@+id/edit_exchange_emileage"
             android:layout_width="117.12dp"
             android:layout_height="31.68dp"
+            android:textColor="#707070"
             android:background="@drawable/exchange_edit_style"/>
 
         <Button
