@@ -49,8 +49,9 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".mypage.MypageActivity">
+        <activity android:name=".mypage.view.MypageActivity">
         </activity>
+        <activity android:name=".mypage.view.MileageActivity"></activity>
 
     </application>
 

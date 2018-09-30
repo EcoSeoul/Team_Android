@@ -3,10 +3,8 @@ package com.eco.ecoseoul.home.view
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -27,7 +25,7 @@ import com.eco.ecoseoul.home.control.bannerAdapter
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.ParentItem
 import com.eco.ecoseoul.shop.view.ShopActivity
-import com.eco.ecoseoul.mypage.MypageActivity
+import com.eco.ecoseoul.mypage.view.MypageActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter

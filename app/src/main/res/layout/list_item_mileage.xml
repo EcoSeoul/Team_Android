@@ -2,40 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="4">
+    android:layout_height="50dp"
+    android:background="#FFF"
+    android:orientation="horizontal"
+>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+    <RelativeLayout
         android:layout_weight="1"
-        app:srcCompat="@drawable/my_mileage_save" />
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/my_mileage_save"/>
+
+
+    </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_weight="10"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:weightSum="2"
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginLeft="13dp"
             android:id="@+id/tv_mileage_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
             android:layout_weight="1"
             android:text="10% 달성 적립"
             android:fontFamily="@font/notosanscjkkr_medium"
-            android:textSize="13dp"/>
+            android:textSize="13dp"
+            android:textColor="#343434"/>
 
         <TextView
+            android:layout_marginLeft="13dp"
             android:id="@+id/tv_mileage_date"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:fontFamily="@font/notosanscjkkr_light"
             android:text="2018.08.24"
-            android:textSize="13dp"/>
+            android:textSize="13dp"
+            android:textColor="#343434"/>
     </LinearLayout>
 
     <TextView
@@ -46,5 +61,7 @@
         android:fontFamily="@font/notosanscjkkr_medium"
         android:text="+20000"
         android:textSize="15dp"
+        android:textColor="#bbbb"
+        android:gravity="right|center"
         android:textAlignment="center"/>
 </LinearLayout>
