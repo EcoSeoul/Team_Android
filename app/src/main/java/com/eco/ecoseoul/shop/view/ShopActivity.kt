@@ -73,6 +73,12 @@ class ShopActivity : AppCompatActivity() {
             var intent = Intent(this@ShopActivity, MypageActivity::class.java)
             startActivity(intent)
         }
+
+        mypageButton.setOnClickListener {
+            var intent = Intent(this@ShopActivity,MypageActivity::class.java)
+            startActivity(intent)
+        }
+
         var onclick = View.OnClickListener { v : View? ->
             var goods_idx = 0
             when(v!!.id){

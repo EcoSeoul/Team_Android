@@ -106,7 +106,7 @@
     <ImageView
         android:paddingTop="50dp"
         android:layout_width="293dp"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:background="@drawable/login_character"
         />

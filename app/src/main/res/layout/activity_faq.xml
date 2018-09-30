@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF"
+    tools:context="com.eco.ecoseoul.mypage.view.FAQActivity">
+
+    <ImageButton
+        android:id="@+id/faq_close"
+        android:background="@drawable/ic_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"/>
+
+    <TextView
+        android:text="자주 묻는 질문"
+        android:layout_marginLeft="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:fontFamily="@font/notosanscjkkr_medium"
+        android:includeFontPadding="false"
+        android:textSize="26dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/faq_recycler"
+        android:layout_marginTop="19dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

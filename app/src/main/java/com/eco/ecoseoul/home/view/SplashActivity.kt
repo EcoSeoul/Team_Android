@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
         networkService = ApplicationController!!.instance.networkService
         splashImage = findViewById(R.id.splash_image)
         var gifTarget = GlideDrawableImageViewTarget(splashImage)
-        Glide.with(this).load(R.drawable.splashios).into(gifTarget)
+        Glide.with(this).load(R.drawable.splash_android).into(gifTarget)
         val handler = Handler()
         handler.postDelayed({
             if(SharedPreference.instance!!.getPrefStringData("user_name")!!.isEmpty()){

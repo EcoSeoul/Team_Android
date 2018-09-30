@@ -100,6 +100,13 @@
                     android:layout_toRightOf="@+id/all_whole_text"
                     android:layout_below="@+id/all_date_text" />
 
+                <ImageView
+                    android:layout_alignLeft="@+id/all_whole_dot_image"
+                    android:layout_below="@+id/all_whole_dot_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/carbon_graph"/>
+
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -145,6 +152,7 @@
             </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="17dp"
                 android:id="@+id/all_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

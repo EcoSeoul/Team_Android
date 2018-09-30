@@ -40,7 +40,7 @@ class ProgressBarAnimation(progress : ProgressBar,circleList : ArrayList<ImageVi
     override fun applyTransformation(interpolatedTime: Float, t: Transformation?) {
         var value = mFrom + (mTo - mFrom) * interpolatedTime
         mProgressBar.progress = value.toInt()
-        if(mFlag == 1){
+        if(mFlag == 2){
             when(value.toInt()){
                 25->{
                     mCircleList.get(0).setBackgroundResource(R.drawable.circle_point_red)

@@ -16,6 +16,8 @@ import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.donation.control.DonationSpinnerAdapter
+import com.eco.ecoseoul.mypage.view.MypageActivity
+import kotlinx.android.synthetic.main.activity_donation.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,6 +51,10 @@ class DonationFragment : Fragment() {
         user_idx = SharedPreference.instance!!.getPrefIntegerData("user_idx")
         networkService = ApplicationController!!.instance.networkService
 
+        view.donation_mypage_button.setOnClickListener {
+            var intent = Intent(activity, MypageActivity::class.java)
+            startActivity(intent)
+        }
 
         var spinnerAdapter = DonationSpinnerAdapter(activity,spinnerList,donationDonateButton)
 
