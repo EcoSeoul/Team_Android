@@ -4,60 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity"
+    android:background="#fff"
     android:orientation="vertical"
-    android:background="#fff">
+    tools:context=".RegistrationActivity">
 
-    <!-- 비율 안 맞음, 카드번호 입력 에딛텍스트 안에 글 수정해야함,
-         카드 이미지 잘라야함, 확인 버튼 스타일 만들어야함, 밑줄-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="left">
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="에코머니 카드\n등록하기"
-            android:textColor="#000000"
-            android:textSize="34sp"
-            android:fontFamily="@font/notosanscjkkr_medium"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="23dp"
-            android:lineSpacingExtra="-10dp"/>
+            android:layout_gravity="left"
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:lineSpacingExtra="-10dp"
+                android:text="에코머니 카드\n등록하기"
+                android:textColor="#000000"
+                android:textSize="34sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:fontFamily="@font/notosanscjkkr_light"
+                android:text="카드로 많은 혜택을 받아보세요!"
+                android:textColor="#343434"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="카드로 많은 혜택을 받아보세요!"
-            android:textColor="#343434"
-            android:textSize="15sp"
-            android:fontFamily="@font/notosanscjkkr_light"
-            android:layout_marginLeft="24dp"/>
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/registration_card" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/registration_card"
-            android:layout_gravity="right"/>
-
-
-    </LinearLayout>
+        </LinearLayout>
 
 
     </RelativeLayout>
@@ -65,17 +63,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="3"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <Spinner
             android:id="@+id/card_spinner"
             android:layout_width="301dp"
             android:layout_height="74dp"
             android:layout_gravity="center"
-            android:background="@drawable/spinner_spinner"
-            >
+            android:background="@drawable/spinner_spinner">
 
 
         </Spinner>
@@ -84,27 +81,26 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/registration_next"
             android:layout_gravity="center"
-            android:layout_marginTop="12.71dp"/>
+            android:layout_marginTop="12.71dp"
+            android:background="@drawable/registration_next" />
 
         <EditText
             android:id="@+id/card_edit"
             android:layout_width="301dp"
             android:layout_height="74dp"
             android:layout_gravity="center"
-            android:gravity="center_vertical"
             android:layout_marginTop="12.71dp"
             android:background="@drawable/card_edit_style"
-            android:hint=" 카드 번호를 입력해주세요!"
-            android:textColorHint="#DBDCDB"
-            android:textColor="#343434"
-            android:maxLines="1"
-            android:inputType="number"
-            android:fontFamily="@font/notosanscjkkr_light"
-            android:paddingLeft="27dp"
             android:cursorVisible="false"
-            />
+            android:fontFamily="@font/notosanscjkkr_light"
+            android:gravity="center_vertical"
+            android:hint=" 카드 번호를 입력해주세요!"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingLeft="27dp"
+            android:textColor="#343434"
+            android:textColorHint="#DBDCDB" />
 
 
     </LinearLayout>
@@ -112,32 +108,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:orientation="vertical">
+
         <Button
             android:id="@+id/card_ok"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="97dp"
             android:layout_height="43dp"
-            android:background="@drawable/card_before_btn_style"
             android:layout_gravity="center"
             android:layout_marginTop="39dp"
+            android:background="@drawable/card_before_btn_style"
             android:text="확인!"
-            android:textColor="#26D07C"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"/>
+            android:textColor="#26D07C" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#A3A3A3"
-            android:text="@string/card"
             android:layout_gravity="right"
-            android:layout_marginTop="17dp"
             android:layout_marginRight="32dp"
-            android:textSize="12sp"
+            android:layout_marginTop="17dp"
             android:fontFamily="@font/notosanscjkkr_light"
+            android:gravity="center"
             android:lineSpacingExtra="-2dp"
-            android:gravity="center"/>
+            android:text="@string/card"
+            android:textColor="#A3A3A3"
+            android:textSize="12sp" />
     </LinearLayout>
 
 

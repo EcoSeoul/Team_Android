@@ -53,6 +53,8 @@ class ExpandableAdapter(var items : ArrayList<ParentItem>) : RecyclerView.Adapte
                 var inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 view = inflater.inflate(R.layout.list_item_child,parent,false)
                 var viewHolder = ChildViewHolder(view)
+
+
                 return viewHolder
             }
         }
