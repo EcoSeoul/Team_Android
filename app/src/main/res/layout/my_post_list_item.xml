@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="26dp">
+        android:layout_marginLeft="12dp">
 
 
         <LinearLayout
@@ -21,8 +21,9 @@
 
 
             <TextView
+                android:id="@+id/my_post_title"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="wrap_content"
                 android:textColor="#343434"
                 android:textSize="13sp"
                 tools:text="여기는 제목임"
@@ -34,26 +35,24 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/image_comment_text_title"
+            android:id="@+id/my_post_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#707070"
             android:textSize="13sp"
-            tools:text="여기는 내용임ㅎㅎㅎㅎㅎㅎ안녕하세여 두줄 까지 가능 할 듯ㅋㅋ ㅎ하하히히히히하"
+            tools:text="여기는 내용임ㅎㅎㅎㅎㅎㅎ"
             android:maxLines="2"
-            android:minHeight="43dp"
             android:layout_marginRight="104dp"
             android:fontFamily="@font/notosanscjkkr_regular"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <TextView
+                android:id="@+id/my_post_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="09/21"
@@ -63,43 +62,43 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="283dp"
                 android:layout_height="match_parent"
-                android:gravity="right"
-                android:layout_marginRight="14dp">
+                android:layout_marginRight="14dp"
+                android:gravity="right">
 
                 <ImageButton
-                    android:id="@+id/com_like"
+                    android:id="@+id/mypost_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/community_recommendation_color" />
 
                 <TextView
-                    android:id="@+id/com_likeCount"
+                    android:id="@+id/my_post_likeCount"
                     android:layout_width="wrap_content"
-                    android:layout_height="19dp"
-                    android:text="1"
-                    android:textSize="13sp"
-                    android:textColor="#707070"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:text="1"
+                    android:textColor="#707070"
+                    android:textSize="13sp" />
 
                 <ImageButton
                     android:id="@+id/com_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/community_chat"
-                    android:layout_marginLeft="12dp"/>
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/community_chat" />
 
                 <TextView
-                    android:id="@+id/com_commentCount"
+                    android:id="@+id/my_post_cmtCount"
                     android:layout_width="wrap_content"
-                    android:layout_height="19dp"
-                    android:text="5"
-                    android:textSize="13sp"
-                    android:textColor="#707070"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:text="5"
+                    android:textColor="#707070"
+                    android:textSize="13sp" />
 
             </LinearLayout>
 
@@ -109,7 +108,6 @@
             android:layout_width="351dp"
             android:layout_height="1dp"
             android:background="#E6E6E6"
-            android:layout_marginLeft="12dp"
             android:layout_marginTop="12.5dp"/>
 
     </LinearLayout>

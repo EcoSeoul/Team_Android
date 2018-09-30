@@ -39,7 +39,8 @@
         android:text="최윤정님"
         android:textColor="#343434"
         android:textSize="22dp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/notosanscjkkr_regular"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +52,8 @@
             android:layout_width="23.22dp"
             android:layout_height="23.22dp"
             android:background="@drawable/exchange_mileage"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:layout_marginRight="4dp"/>
 
         <TextView
             android:id="@+id/text_user_mileage"
@@ -61,7 +63,8 @@
             android:text="50000"
             android:textColor="#26D07C"
             android:textSize="22dp"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/notosanscjkkr_regular"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +73,8 @@
             android:text=" 마일리지"
             android:textColor="#343434"
             android:textSize="22dp"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/notosanscjkkr_regular"/>
 
     </LinearLayout>
 
@@ -101,7 +105,9 @@
             android:background="@drawable/exchange_btn_style"
             android:text="전액"
             android:textColor="#26D07C"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:fontFamily="@font/notosanscjkkr_regular"/>
 
     </LinearLayout>
 
@@ -116,6 +122,8 @@
         android:background="@drawable/exchange_btn_style"
         android:text="에코머니로 전환"
         android:textColor="#26D07C"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:fontFamily="@font/notosanscjkkr_regular"/>
 
 </LinearLayout>

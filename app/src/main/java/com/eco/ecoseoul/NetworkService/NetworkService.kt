@@ -1,13 +1,15 @@
 package com.eco.ecoseoul.NetworkService
 
 import com.eco.ecoseoul.BaseModel
-import com.eco.ecoseoul.GoodsResponse
+import com.eco.ecoseoul.mypage.model.DonationResponse
+import com.eco.ecoseoul.mypage.model.GoodsResponse
 import com.eco.ecoseoul.community.model.ComListResponse
 import com.eco.ecoseoul.community.model.CommentResponse
 import com.eco.ecoseoul.franchise.FranchiseResponse
 import com.eco.ecoseoul.franchise.MapsResponse
 import com.eco.ecoseoul.home.model.MainResponse
 import com.eco.ecoseoul.home.model.LoginResponse
+import com.eco.ecoseoul.mypage.model.MyBoardResponse
 import com.eco.ecoseoul.mypage.model.MileageResponse
 import com.eco.ecoseoul.mypage.model.MypageResponse
 import com.eco.ecoseoul.shop.model.ShopDetailResponse
@@ -149,5 +151,17 @@ interface NetworkService {
             @Field("user_idx") user_idx : Int,
             @Field("exchange") exchange : Int
     ) : Call<BaseModel>
+
+    //. 마이페이지 기관 기부 내역
+    @GET("mypage/mydonation/{user_idx}")
+    fun getMydonation(
+            @Path("user_idx") user_idx : Int
+    ) :  Call<DonationResponse>
+
+    //. 마이페이지 내가 쓴 글
+    @GET("mypage/myboard/{user_idx}")
+    fun getMyboard(
+            @Path("user_idx") user_idx : Int
+    ) : Call<MyBoardResponse>
 
 }

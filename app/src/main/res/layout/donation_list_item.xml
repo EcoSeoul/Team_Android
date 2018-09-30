@@ -35,15 +35,18 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/org_name"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="wrap_content"
                 android:text="푸른 아시아"
                 android:textColor="#343434"
                 android:textSize="13sp"
                 android:fontFamily="@font/notosanscjkkr_medium"/>
+
             <TextView
+                android:id="@+id/donation_date"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="wrap_content"
                 android:text="2018.08.26"
                 android:textColor="#707070"
                 android:textSize="13sp"
@@ -58,6 +61,7 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/mileage_withdraw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"

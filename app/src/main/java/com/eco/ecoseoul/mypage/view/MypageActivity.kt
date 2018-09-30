@@ -133,16 +133,16 @@ class MypageActivity : AppCompatActivity() {
                     }
                 }
                 R.id.btn_my_request -> { //신청 내역 보기
-                    /*intent = Intent(this, MyRequestActivity::class.java)
-                    startActivity(intent)*/
+                    intent = Intent(this, MypageMylistActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btn_my_donation -> { //기부 내역 보기
-                    /*intent = Intent(this, MyDonationActivity::class.java)
-                    startActivity(intent)*/
+                    intent = Intent(this, MypageMylistActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btn_my_post -> { //내가 쓴 글 보기
-                    /*intent = Intent(this, MyPostACtivity::class.java)
-                    startActivity(intent)*/
+                    intent = Intent(this, MypageMylistActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btn_my_card -> { //카드 등록하기
                     /*intent = Intent(this, MyCardActivity::class.java)

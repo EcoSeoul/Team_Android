@@ -1,8 +1,13 @@
 package com.eco.ecoseoul.shop.view
 
+import android.app.Dialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
+import android.text.Layout
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,6 +23,8 @@ import com.eco.ecoseoul.mypage.view.MypageActivity
 import com.eco.ecoseoul.shop.model.ShopDetailItem
 import com.eco.ecoseoul.shop.model.ShopDetailResponse
 import kotlinx.android.synthetic.main.activity_shop_detail.*
+import kotlinx.android.synthetic.main.dialog_shop_check.*
+import kotlinx.android.synthetic.main.dialog_shop_check.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -90,8 +97,19 @@ class ShopDetailActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<BaseModel>?, response: Response<BaseModel>?) {
                         if(response!!.isSuccessful){
-                            var intent = Intent(this@ShopDetailActivity,DonationCompleteActivity::class.java)
-                            startActivity(intent)
+                            val mDialog = LayoutInflater.from(this@ShopDetailActivity).inflate(R.layout.dialog_shop_check,null)
+                            val mBuilder = AlertDialog.Builder(this@ShopDetailActivity).setView(mDialog)
+                            val mAlertDialog = mBuilder.show()
+
+                            mDialog.shop_cancel.setOnClickListener {
+                                mAlertDialog.dismiss()
+                            }
+                            mDialog.shop_ok.setOnClickListener {
+                                mAlertDialog.dismiss()
+                                var intent = Intent(this@ShopDetailActivity,DonationCompleteActivity::class.java)
+                                startActivity(intent)
+                            }
+
                         }
                     }
 
@@ -100,4 +118,6 @@ class ShopDetailActivity : AppCompatActivity() {
 
         }
     }
+
+
 }

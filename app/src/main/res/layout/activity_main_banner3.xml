@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainBanner1Activity"
+    android:id="@+id/main_banner3"
+    android:background="#fff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/mainbanner3_1"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainbanner3_2"/>
+
+                <ImageButton
+                    android:id="@+id/banner_arrow1"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arrow_right_black"
+                    android:layout_gravity="right"/>
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainbanner3_3"/>
+
+                <ImageButton
+                    android:id="@+id/banner_arrow2"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arrow_right_black"
+                    android:layout_gravity="right"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainbanner3_4"/>
+
+
+                <ImageButton
+                    android:id="@+id/banner_arrow3"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arrow_right_black"
+                    android:layout_gravity="right"/>
+            </FrameLayout>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/mainbanner3_5"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

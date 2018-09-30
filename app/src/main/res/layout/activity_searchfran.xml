@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="horizontal"
+        android:layout_marginTop="27dp"
         android:weightSum="7">
 
         <LinearLayout
@@ -20,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="31dp"
             android:layout_marginRight="55dp"
-            android:layout_marginTop="51dp"
             android:layout_weight="2"
             android:orientation="vertical">
 
@@ -29,14 +29,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="가맹점 찾기"
-                android:textSize="35dp" />
+                android:textColor="#343434"
+                android:textSize="35dp"
+                android:fontFamily="@font/notosanscjkkr_medium"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#797979"
                 android:text="서울특별시에서 더 자세한 에코 가맹점을 찾아보아요!"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:fontFamily="@font/notosanscjkkr_regular"/>
         </LinearLayout>
 
         <ImageView
@@ -44,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="88dp"
             android:layout_marginRight="31dp"
-            android:layout_marginTop="51dp"
             android:layout_weight="5"
+            android:layout_gravity="center"
             app:srcCompat="@drawable/map_marker" />
     </LinearLayout>
 
@@ -217,17 +221,14 @@
             android:id="@+id/btn_kangnam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
             android:background="@drawable/selector_kangnam"
             android:padding="0dp"
             android:text="강남"
             android:textColor="#727272"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.759"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
+            app:layout_constraintStart_toStartOf="@+id/btn_seocho"
+            tools:layout_editor_absoluteY="202dp" />
 
         <Button
             android:id="@+id/btn_seongdong"
@@ -260,17 +261,15 @@
             android:id="@+id/btn_songpa"
             android:layout_width="84dp"
             android:layout_height="66dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/selector_songpa"
             android:padding="0dp"
             android:text="송파"
             android:textColor="#727272"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.89"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.755" />
+            app:layout_constraintStart_toStartOf="@+id/btn_kangnam"
+            app:layout_constraintTop_toTopOf="@+id/btn_kangdong" />
 
         <Button
             android:id="@+id/btn_kangdong"
@@ -371,7 +370,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="지역을 입력해주세요!"
-            android:textSize="25dp"
-            android:textColor="#696969"/>
+            android:textSize="20sp"
+            android:textColor="#696969"
+            android:fontFamily="@font/notosanscjkkr_regular"/>
     </RelativeLayout>
 </LinearLayout>
