@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.eco.ecoseoul.ApplicationController
 import com.eco.ecoseoul.NetworkService.NetworkService
@@ -22,6 +23,7 @@ class BottomSheetDialog() : BottomSheetDialogFragment(), View.OnClickListener {
     private var tv_fran_type: TextView? = null
     private var tv_fran_addr: TextView? = null
     private var tv_fran_num: TextView? = null
+    private var iv_fran_discount : ImageView? = null
     lateinit var networkService : NetworkService
      var frc_idx = 0
 
@@ -41,6 +43,7 @@ class BottomSheetDialog() : BottomSheetDialogFragment(), View.OnClickListener {
         tv_fran_type = view.findViewById<View>(R.id.tv_fran_type) as TextView
         tv_fran_addr = view.findViewById<View>(R.id.tv_fran_addr) as TextView
         tv_fran_num = view.findViewById<View>(R.id.tv_fran_num) as TextView
+        iv_fran_discount = view.findViewById<View>(R.id.imageView) as ImageView
 
         val mapsResponse = networkService.getFranInfo(frcInfo)
         mapsResponse.enqueue(object : retrofit2.Callback<MapsResponse>{
@@ -53,6 +56,26 @@ class BottomSheetDialog() : BottomSheetDialogFragment(), View.OnClickListener {
                 tv_fran_type!!.text = response!!.body()!!.frc_information[0].frc_type.toString()
                 tv_fran_num!!.text = response!!.body()!!.frc_information[0].frc_phone
                 tv_fran_addr!!.text = response!!.body()!!.frc_information[0].frc_add
+                when(response!!.body()!!.frc_information[0].frc_salepercent){
+                    5->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.discount_5_darkgreen)
+                    }
+                    10->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.discount_10_darkgreen)
+                    }
+                    15->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.discount_15_darkgreen)
+                    }
+                    20->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.discount_20_darkgreen)
+                    }
+                    30->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.discount_30_darkgreen)
+                    }
+                    100->{
+                        iv_fran_discount!!.setBackgroundResource(R.drawable.free_darkgreen)
+                    }
+                }
             }
 
         })

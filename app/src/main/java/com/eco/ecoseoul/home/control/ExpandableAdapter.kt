@@ -10,6 +10,8 @@ import com.eco.ecoseoul.home.model.ParentItem
 import java.util.ArrayList
 import android.R.attr.data
 import android.content.ClipData.Item
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 
@@ -23,6 +25,8 @@ class ExpandableAdapter(var items : ArrayList<ParentItem>) : RecyclerView.Adapte
     private final var TEXT : Int = 1
     private final var CHILD : Int = 2
 
+    lateinit var context : Context
+
 
     override fun getItemViewType(position: Int): Int {
         return items.get(position).type
@@ -31,7 +35,7 @@ class ExpandableAdapter(var items : ArrayList<ParentItem>) : RecyclerView.Adapte
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
         var view : View? = null
-        var context : Context = parent!!.context
+        context  = parent!!.context
 
 
         when(viewType){
@@ -114,12 +118,18 @@ class ExpandableAdapter(var items : ArrayList<ParentItem>) : RecyclerView.Adapte
                     when(position){
                         2->{
                             Log.d("expandable","top")
+                            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://topshop.bccard.com/app/topmall/m/main/main"))
+                            context.startActivity(intent)
                         }
                         4->{
                             Log.d("expandable","engine")
+                            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/EngineDoctorQ"))
+                            context.startActivity(intent)
                         }
                         5->{
                             Log.d("expandable","friend")
+                            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.honest79.co.kr/?NaPm=ct%3Djmg9y1xo%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3Dbacd7b5c5fd5e888ce084b1072028c6563584fa9"))
+                            context.startActivity(intent)
                         }
                     }
 

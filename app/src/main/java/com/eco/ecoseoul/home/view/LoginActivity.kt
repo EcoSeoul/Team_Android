@@ -43,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
 //        }
         idEdit = findViewById(R.id.login_id_edit)
         pwEdit = findViewById(R.id.login_pw_edit)
+        idEdit.setText("timi")
+        pwEdit.setText("123")
         loginButton = findViewById(R.id.login_login_button)
         loginButton.setOnClickListener{v: View? ->
             if(idEdit.text.toString().equals("") || pwEdit.text.toString().equals("")){

@@ -73,7 +73,11 @@ class AllActivity : AppCompatActivity() {
         var tempCalendar = Calendar.getInstance()
         tempCalendar.add(Calendar.MONTH,-1)
 
-        carbonDateText.text = calendar.get(Calendar.YEAR).toString()+"."+mainData!!.body()!!.term[0].toString()+
+        var term : String? = null
+        if(mainData!!.body()!!.term[0]<10){
+            term = "0"+mainData!!.body()!!.term[0]
+        }
+        carbonDateText.text = calendar.get(Calendar.YEAR).toString()+"."+term+
                 " ~ "+SimpleDateFormat("YYYY.MM").format(tempCalendar.time)
 
         carbonUsageText.text = (mainData!!.body()!!.usageData.carbon.present.toString()+"kgCO2")
@@ -82,11 +86,11 @@ class AllActivity : AppCompatActivity() {
             0->{
                 carbonArrowImage.setBackgroundResource(R.drawable.percentage_down)
             }
-            1->{
+            2->{
                 carbonArrowImage.setBackgroundResource(R.drawable.percentage_up)
                 carbonPercentageText.setTextColor(Color.parseColor("#FF8888"))
             }
-            2->{
+            1->{
                 carbonArrowImage.setBackgroundResource(R.drawable.percentage_down)
             }
         }
@@ -101,10 +105,10 @@ class AllActivity : AppCompatActivity() {
                 mainData!!.body()!!.usageData.elec.up_down,(mainData!!.body()!!.usageData.elec.present.toString()+"kWh"),
                 (mainData!!.body()!!.usageData.elec.percentage.toString()+"%")))
         allUsageItems!!.add(AllUsageItem(resources.getDrawable(R.drawable.home_all_water),calendar.get(Calendar.MONTH).toString()+"월 수도 사용량",
-                mainData!!.body()!!.usageData.water.up_down,(mainData!!.body()!!.usageData.water.present.toString()+"kWh"),
+                mainData!!.body()!!.usageData.water.up_down,(mainData!!.body()!!.usageData.water.present.toString()+"m^3"),
                 ( mainData!!.body()!!.usageData.water.percentage.toString()+"%")))
         allUsageItems!!.add(AllUsageItem(resources.getDrawable(R.drawable.home_all_gas),calendar.get(Calendar.MONTH).toString()+"월 도시가스 사용량",
-                mainData!!.body()!!.usageData.gas.up_down,(mainData!!.body()!!.usageData.gas.present.toString()+"kWh"),
+                mainData!!.body()!!.usageData.gas.up_down,(mainData!!.body()!!.usageData.gas.present.toString()+"m^3"),
                 (mainData!!.body()!!.usageData.gas.percentage.toString()+"%")))
         usageAdapter = UsageAdapter(allUsageItems!!)
         usageRecycler = findViewById(R.id.all_recyclerView)

@@ -8,15 +8,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.eco.ecoseoul.R
+import com.eco.ecoseoul.RegistrationActivity
 
 /**
  * Created by minhyoung on 2018. 9. 28..
  */
 class CardRegiDialog(context: Context) : Dialog(context),View.OnClickListener {
     override fun onClick(v: View?) {
-//        var intent : Intent
-//        intent = Intent(context,)
-//        context.startActivity(intent)
+        var intent : Intent
+        intent = Intent(context,RegistrationActivity::class.java)
+        context.startActivity(intent)
         dismiss()
     }
 

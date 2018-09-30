@@ -52,6 +52,5 @@
         android:layout_weight="2"
         android:layout_marginRight="18.9dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        app:srcCompat="@drawable/colormap_dongdaemoon" />
+        android:layout_marginBottom="15dp" />
 </LinearLayout>

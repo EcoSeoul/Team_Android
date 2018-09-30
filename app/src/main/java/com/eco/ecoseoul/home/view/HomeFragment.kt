@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
                 reductionImage.setBackgroundResource(R.drawable.percentage_down)
                 saveText.text = "작년과 같은 사용량 이에요!"
             }
-            1->{
+            2->{
                 reductionImage.setBackgroundResource(R.drawable.percentage_up)
                 reductionText.setTextColor(Color.parseColor("#FF8888"))
                 saveText.text = "작년보다 "+mainData!!.body()!!.usageData.carbon.percentage.toString()+"%를\r\n" +

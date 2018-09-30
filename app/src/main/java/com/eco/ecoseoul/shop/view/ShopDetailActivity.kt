@@ -19,6 +19,7 @@ import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.donation.view.DonationCompleteActivity
+import com.eco.ecoseoul.mypage.view.MypageActivity
 import com.eco.ecoseoul.shop.model.ShopDetailItem
 import com.eco.ecoseoul.shop.model.ShopDetailResponse
 import kotlinx.android.synthetic.main.activity_shop_detail.*
@@ -33,7 +34,7 @@ class ShopDetailActivity : AppCompatActivity() {
     lateinit var shopDetailItem : ShopDetailItem
     lateinit var networkService: NetworkService
     lateinit var goodsName : TextView
-    lateinit var goodsPrice : TextView
+    lateinit var goodsPriceText : TextView
     lateinit var goods_company : TextView
     lateinit var goods_image : ImageView
     lateinit var goods_content : TextView
@@ -47,6 +48,12 @@ class ShopDetailActivity : AppCompatActivity() {
         goods_image = findViewById(R.id.goods_image)
         goods_content = findViewById(R.id.goods_content)
         goods_summary = findViewById(R.id.goods_summary)
+        goodsPriceText = findViewById(R.id.goods_price)
+
+        shop_mypage_btn.setOnClickListener {
+            var intent = Intent(this@ShopDetailActivity, MypageActivity::class.java)
+            startActivity(intent)
+        }
 
         var goods_idx = intent.getIntExtra("goods_idx",0)
         var user_idx = SharedPreference!!.instance!!.getPrefIntegerData("user_idx")
@@ -67,9 +74,11 @@ class ShopDetailActivity : AppCompatActivity() {
                     goods_company.text = shopDetailItem.goods_company
                     goods_content.text = shopDetailItem.goods_content
                     goods_summary.text = shopDetailItem.goods_summery
+                    goodsPriceText.text = shopDetailItem.goods_price.toString()
                     Glide.with(this@ShopDetailActivity).load(shopDetailItem.goods_img).into(goods_image)
                     goods_name = shopDetailItem.goods_name
                     goods_price = shopDetailItem.goods_price
+
 
                 }
             }

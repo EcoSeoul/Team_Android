@@ -149,10 +149,12 @@ class MypageActivity : AppCompatActivity() {
                     startActivity(intent)*/
                 }
                 R.id.btn_my_faq1 -> { //자주 묻는 질문
-
+                    intent = Intent(this@MypageActivity,FAQActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btn_my_faq2 -> { //자주 묻는 질문
-
+                    intent = Intent(this@MypageActivity,FAQActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btn_my_logout -> { //로그아웃
                     var intent = Intent(this@MypageActivity,LoginActivity::class.java)

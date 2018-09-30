@@ -228,7 +228,7 @@
                 <TextView
                     android:layout_marginLeft="19dp"
                     android:layout_weight="1"
-                    android:text="에코마일리지 기부 어쩌고"
+                    android:text="에코마일리지를 각 기관에 기부해보세요"
                     android:textColor="#707070"
                     android:textSize="14dp"
                     android:fontFamily="@font/notosanscjkkr_regular"
