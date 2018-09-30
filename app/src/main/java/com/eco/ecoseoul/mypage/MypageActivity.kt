@@ -26,9 +26,9 @@ class MypageActivity : AppCompatActivity() {
     lateinit var btn_my_faq2 : Button
     lateinit var btn_my_logout : Button
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("MypageActivity>> ", "onCreate")
-        super.onCreate(savedInstanceState, persistentState)
+        super.onCreate(savedInstanceState)
         Log.d("MypageActivit>>", "after_onCreate")
         setContentView(R.layout.activity_mypage)
 
