@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.eco.ecoseoul.ApplicationController
+import com.eco.ecoseoul.MainBanner1Activity
 import com.eco.ecoseoul.NetworkService.NetworkService
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.SharedPreference
@@ -147,7 +148,8 @@ class MainFragment : Fragment() {
             }
             R.id.main_milage_button->{//마일리지 설명 버튼
                 //intent = Intent(activity.applicationContext,)
-                Toast.makeText(activity.applicationContext,"milage",Toast.LENGTH_SHORT).show()
+                intent = Intent(activity,MainBanner1Activity::class.java)
+                startActivity(intent)
             }
             R.id.barcode_mypage_button->{ //마이페이지 버튼
                 Log.d("mainFrag","mypage")

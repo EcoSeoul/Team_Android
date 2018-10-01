@@ -28,7 +28,7 @@
                 android:fontFamily="@font/notosanscjkkr_medium"/>
 
             <ImageButton
-                android:id="@+id/shop_mypage"
+                android:id="@+id/shop_mypage_btn"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="right"

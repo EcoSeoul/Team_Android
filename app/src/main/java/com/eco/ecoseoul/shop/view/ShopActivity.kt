@@ -69,13 +69,9 @@ class ShopActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_shop2)
 
-        shop_mypage.setOnClickListener {
-            var intent = Intent(this@ShopActivity, MypageActivity::class.java)
-            startActivity(intent)
-        }
 
-        mypageButton.setOnClickListener {
-            var intent = Intent(this@ShopActivity,MypageActivity::class.java)
+        shop_mypage_btn.setOnClickListener {
+            var intent = Intent(this@ShopActivity, MypageActivity::class.java)
             startActivity(intent)
         }
 
