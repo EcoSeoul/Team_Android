@@ -36,6 +36,8 @@ class MypageActivity : AppCompatActivity() {
     lateinit var btn_my_faq2 : Button
     lateinit var btn_my_logout : Button
 
+    lateinit var btn_my_page : Button
+
     lateinit var text_my_emileage : TextView
     lateinit var text_my_emoney : TextView
 
@@ -54,14 +56,16 @@ class MypageActivity : AppCompatActivity() {
 
         getMypage()
 
+
+        btn_my_page = findViewById(R.id.mypage_close)
+        btn_my_page.setOnClickListener {
+            finish()
+        }
         Log.d("MypageActivit>>", "after_onCreate")
         var onClick = View.OnClickListener { v: View? ->
 
             var intent : Intent? = null
             when(v!!.id) {
-                R.id.mypage_close -> {
-                    finish()
-                }
                 R.id.btn_my_emileage_detail -> { //에코 마일리지 상세보기
                     intent = Intent(this, MileageActivity::class.java)
                     intent.putExtra("flag",0)

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -19,6 +20,9 @@ import retrofit2.Response
 import com.eco.ecoseoul.R
 import com.eco.ecoseoul.SharedPreference
 import com.eco.ecoseoul.home.model.MainResponse
+import android.widget.Toast
+
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginButton : Button
     lateinit var signupButton : TextView
     lateinit var networkService: NetworkService
+
+    private val  FINISH_INTERVAL_TIME = 2000;
+    private var backPressedTime = 0;
 
 //    companion object {
 //        lateinit var mainData: Response<MainResponse>
@@ -82,6 +89,15 @@ class LoginActivity : AppCompatActivity() {
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ecomileage.seoul.go.kr/home/join.do?menuNo=21"))
             startActivity(intent)
         }
+    }
+
+    override fun onBackPressed() {
+        val tempTime = System.currentTimeMillis()
+        val intervalTime = tempTime - backPressedTime
+        ActivityCompat.finishAffinity(this);
+        System.runFinalizersOnExit(true);
+        System.exit(0);
+
     }
 
     fun getMainItems(user_idx : Int){

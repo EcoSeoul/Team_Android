@@ -51,10 +51,7 @@ class DonationFragment : Fragment() {
         user_idx = SharedPreference.instance!!.getPrefIntegerData("user_idx")
         networkService = ApplicationController!!.instance.networkService
 
-        view.donation_mypage_button.setOnClickListener {
-            var intent = Intent(activity, MypageActivity::class.java)
-            startActivity(intent)
-        }
+
 
         var spinnerAdapter = DonationSpinnerAdapter(activity,spinnerList,donationDonateButton)
 
